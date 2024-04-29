@@ -5,44 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
-      <change afterPath="$PROJECT_DIR$/.idea/InventoryManagementWestminster.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/requests.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/3-in-1 tablet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/Inventory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/accessory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/charger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/headphones.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/laptop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/monitor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/phone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/profile_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/speakers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/tablet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,8 +108,17 @@
       <option name="presentableId" value="Default" />
       <updated>1714096611830</updated>
       <workItem from="1714096611832" duration="248000" />
-      <workItem from="1714096877444" duration="40523000" />
+      <workItem from="1714096877444" duration="41935000" />
     </task>
+    <task id="LOCAL-00001" summary="main template">
+      <option name="closed" value="true" />
+      <created>1714404594343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714404594343</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
