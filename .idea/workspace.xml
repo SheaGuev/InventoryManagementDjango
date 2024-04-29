@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
+      <change afterPath="$PROJECT_DIR$/.idea/InventoryManagementWestminster.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/requests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagementWestminster/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/3-in-1 tablet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/Inventory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/accessory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/charger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/headphones.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/laptop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/monitor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/phone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/profile_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/speakers.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/tablet.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2fcNs89XPXdjIg0ChvluVX6I1Rk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\images" />
+      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\css" />
+      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="InventoryManagementWestminster" type="Python.DjangoServer" factoryName="Django server">
+      <module name="InventoryManagementWestminster" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="" />
+      <created>1714096611830</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714096611830</updated>
+      <workItem from="1714096611832" duration="248000" />
+      <workItem from="1714096877444" duration="40523000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="main template" />
+    <option name="LAST_COMMIT_MESSAGE" value="main template" />
+  </component>
+</project>
