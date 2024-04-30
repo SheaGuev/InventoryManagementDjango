@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="static/css/reservations.css">
+    <link rel="stylesheet" href="static/css/basscss.css">
+{% endblock %}
+
+{% block content %}
+  <div class="rsv-root">
+    <h3 class="mx-auto mb-2 simple-hd">
+      Equipment Requests
+    </h3>
+
+    {% for booking in bookings %}
+    <div class="rsv-block p2">
+      <div class="flex">
+        <h3 class="h1 m0" style="font-weight: initial">
+          {{ booking.device }}
+        </h3>
+      </div>
+      
+      <div class="flex">
+        <h5 class="p0 mt0">
+          Pickup: {{ booking.device_act_ret_date }}
+        </h5>
+
+        <h5 class="ml-auto p0 mt0">
+          Return: {{ booking.device_exp_ret_date }}
+        </h5>
+
+        <div class="my-auto ml-auto">
+          <button class="btn btn-primary">View</button>
+          <button class="btn btn-danger">Amend</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}   
+  </div>
+{% endblock %}
