@@ -16,3 +16,7 @@ def search(request):
     #
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
+
+def reservations(request):
+    
+    return render(request, "reservations.html");

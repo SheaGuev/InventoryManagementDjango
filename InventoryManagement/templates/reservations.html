@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    
+    <link rel="stylesheet" href="static/css/reservations.css">
+    <link rel="stylesheet" href="static/css/basscss.css">
+{% endblock %}
+
+{% block content %}
+  <div class="rsv-root">
+    <h3 class="mx-auto mb-2 simple-hd">
+      Approval Requests
+    </h3>
+
+    <div class="rsv-block" style="margin-top: 10px">
+      <div class="rsv-inner">
+        <p>
+          This is some reservation header
+        </p>
+      </div>
+
+      <div class="rsv-body flex">
+        <p>
+          This is some reservation body
+        </p>
+
+        <div class="my-auto ml-auto">
+          <button class="btn btn-primary">Approve</button>
+          <button class="btn btn-danger">Reject</button>
+        </div>
+
+        
+      </div>
+      
+
+
+    </div>
+  </div>
+{% endblock %}
