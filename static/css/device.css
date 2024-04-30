@@ -1,0 +1,6 @@
+.product-item img {
+            max-width: 200px;
+            max-height: 150px;
+            margin: auto 4%;
+            object-fit: cover;
+        }

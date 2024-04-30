@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +13,7 @@
 {#    {% bootstrap_css %}#}
 {#    {% bootstrap_javascript %}#}
     <title>Dashboard - Custom Layout</title>
-    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block styles %}
         {% endblock %}
 </head>
@@ -20,7 +21,7 @@
 
     <div class="top-bar">
         <div class="logo">
-            <img src="static/images/inventory.png" alt="Logo" style="height: 40px;">
+            <img src="{% static 'images/inventory.png' %}" alt="Logo" style="height: 40px;">
         </div>
             <div class="profile-info">
 
@@ -28,7 +29,7 @@
                     <p>John Doe</p>
                 {% endblock user_name %}
 
-                <img src="static/images/profile_icon.png" alt="Profile">
+                <img src="{% static "images/profile_icon.png" %}" alt="Profile">
 
             </div>
         </div>
@@ -49,6 +50,7 @@
 
     {% endblock content %}
 
+    <script type="text/javascript" src="{% static "htmx.min.js" %}"></script>
 
 </body>
 </html>

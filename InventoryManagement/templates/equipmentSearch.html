@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+    {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="static/css/equipment.css">
+    <link rel="stylesheet" href="{% static 'css/equipment.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -9,20 +10,24 @@
     <div class="electronics-panel">
         <h2>Equipment</h2>
         <div class="search-panel">
-            <form method="get" class="form">
+
+            <form method="get"
+            {#            hx-get="{% url 'search' %}"#}
+            >
                 <input type="text" placeholder="Search..." name="search" value="{{ search }}">
 
 
-            <input type="date" placeholder="Return Date" name="return_date" value="{{ return_date }}">
-            <input type="date" placeholder="Pickup Date" name="pickup_date" value="{{ pickup_date }}">
-            <select>
-                <option value="all">All</option>
-                <option value="available">Available</option>
-                <option value="unavailable">Unavailable</option>
+            <input type="number" placeholder="return>" name="return_day>" value="{{ return_day }}" min="1" max="48">
+            <input type="number" placeholder="return<" name="return_day<" value="{{ return_day }}" min="1" max="48">
+
+            <select name="device_satus" >
+                <option value="">All</option>
+                <option name="available" value="available">Available</option>
+                <option name="unavailable" value="unavailable">Unavailable</option>
 
             </select>
-            <select>
-                <option value="all">All</option>
+            <select name="device_type" >
+                <option value="">All</option>
                 <option value="laptop">Laptop</option>
                 <option value="tablet">Tablet</option>
                 <option value="3-in-1 tablet">3-in-1 Tablet</option>
@@ -30,7 +35,7 @@
                 <option value="monitor">Monitor</option>
                 <option value="other">Other</option>
             </select>
-            <button class="savebtn" formaction="/">Save filters</button>
+            <button class="savebtn" formaction="" name="">Save filters</button>
             <button class="resetbtn" formaction="reset">Reset filters</button>
             </form>
         </div>
@@ -38,31 +43,24 @@
 
         <div class="product-panel">
 
-        {% for device in devices %}
-
-            <div class="product-item">
-                <img src="static/images/{{ device.device_type.lower }}.png" alt="{{ device.device_type }}">
-            <div class="product-info">
-                <h2>{{ device.device_name }}</h2>
-                <p> {{ device.device_type }}</p>
-                <p class="{% if device.device_status %}available{% else %}unavailable{% endif %}">
-                    {% if device.device_status %}Available{% else %}Unavailable{% endif %}</p>
-                <div class="actions">
-                    <button class="view-btn">View</button>
-                    <button class="edit-btn">Edit</button>
-                </div>
-            </div>
-            </div>
-        {% endfor %}
+         {%  include "search.html" %}
 
         </div>
-        <div class="pagination">
-            <span>&lt;</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>&gt;</span>
-        </div>
+
+{#    NOTE: ADD THE PAGINATION TO ITS OWN TEMPLATE#}
+
+
+       <div class="pagination">
+    {% if devices.has_previous %}
+        <a href="?page={{ devices.previous_page_number }}">&lt;</a>
+    {% endif %}
+
+    <span>{{ devices.number }}</span>
+
+    {% if devices.has_next %}
+        <a href="?page={{ devices.next_page_number }}">&gt;</a>
+    {% endif %}
+</div>
     </div>
     </div>
 

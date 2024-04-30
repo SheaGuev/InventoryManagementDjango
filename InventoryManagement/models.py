@@ -17,16 +17,17 @@ class Device(models.Model):
     device_status = models.BooleanField(default=False)  # Changed from CharField to BooleanField
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     config = models.ForeignKey('DeviceConfig', on_delete=models.CASCADE, null=True, blank=True)
+    return_day = models.IntegerField(default=0)
 
     def __str__(self):
         return self.device_name
 
 
 class DeviceConfig(models.Model):
-    device_serial = models.CharField(max_length=50)
-    device_cpu = models.CharField(max_length=50)
+    device_serial = models.CharField(max_length=50, unique=True, null=False)
+    device_cpu = models.CharField(max_length=50, null=True, blank=True)
     device_gpu = models.CharField(max_length=50, null=True, blank=True)
-    device_ram = models.CharField(max_length=50)
+    device_ram = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.device_serial
@@ -45,7 +46,7 @@ class Role(models.Model):
 
 
 class User(models.Model):
-    @staticmethod
+
     def get_default_role():
         return Role.objects.get(role_name='user').pk
 
