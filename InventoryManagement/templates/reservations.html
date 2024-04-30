@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block styles %}
-    
     <link rel="stylesheet" href="static/css/reservations.css">
     <link rel="stylesheet" href="static/css/basscss.css">
 {% endblock %}
@@ -12,28 +11,37 @@
       Approval Requests
     </h3>
 
-    <div class="rsv-block" style="margin-top: 10px">
-      <div class="rsv-inner">
-        <p>
-          This is some reservation header
-        </p>
+    {% for booking in bookings %}
+    <div class="rsv-block">
+      <div class="rsv-inner flex">
+        <h5>
+          Role: {{ booking.user.role }}
+        </h5>
+
+        <h5 class="ml-auto">
+          ID: w{{ booking.user.id }}
+        </h5>
+
+        <h5 class="ml-auto">
+          Registry Date: {{ booking.booking_req_date }}
+        </h5>
       </div>
 
       <div class="rsv-body flex">
-        <p>
-          This is some reservation body
-        </p>
+        <h5>
+          User: R#{{ booking.user.user.id }}
+        </h5>
+
+        <h5 class="ml-auto">
+          Email: {{ booking.user.user_email }}
+        </h5>
 
         <div class="my-auto ml-auto">
           <button class="btn btn-primary">Approve</button>
           <button class="btn btn-danger">Reject</button>
         </div>
-
-        
       </div>
-      
-
-
     </div>
+    {% endfor %}   
   </div>
 {% endblock %}

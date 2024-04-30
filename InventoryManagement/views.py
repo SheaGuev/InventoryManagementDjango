@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from . models import Device, DeviceConfig
+from . models import Booking, Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -65,6 +65,10 @@ def _search(request):
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
 
+def equipmentRequests(request):
+    bookings = Booking.objects.all()
+    return render(request, "equipmentRequest.html", { "bookings": bookings })
+
 def reservations(request):
-    
-    return render(request, "reservations.html");
+    bookings = Booking.objects.filter(booking_status="Pending")
+    return render(request, "reservations.html", { "bookings": bookings });

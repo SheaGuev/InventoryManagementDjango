@@ -8,7 +8,9 @@
                 <p class="{% if device.device_status %}available{% else %}unavailable{% endif %}">
                     {% if device.device_status %}Available{% else %}Unavailable{% endif %}</p>
                 <div class="actions">
+                    {% if device.config%}
                     <a href="{% url 'device_view' device.config.device_serial %}"><button class="view-btn">View</button></a>
+                    {% endif %}
                     <button class="edit-btn">Edit</button>
                 </div>
             </div>
