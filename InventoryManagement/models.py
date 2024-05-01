@@ -34,21 +34,21 @@ class DeviceConfig(models.Model):
         return self.device_serial
 
 
-# class Role(models.Model):
-#     ROLE_CHOICES = (
-#         ('user', 'User'),
-#         ('admin', 'Admin'),
-#     )
-#     role_name = models.CharField(max_length=50, choices=ROLE_CHOICES)
-#     role_desc = models.CharField(max_length=200, null=True, blank=True)
-#
-#     def __str__(self):
-#         return self.role_name
+class Role(models.Model):
+    ROLE_CHOICES = (
+        ('user', 'User'),
+        ('admin', 'Admin'),
+    )
+    role_name = models.CharField(max_length=50, choices=ROLE_CHOICES)
+    role_desc = models.CharField(max_length=200, null=True, blank=True)
+
+    def __str__(self):
+        return self.role_name
 
 
 # class User(models.Model):
 #
-#     def get_default_role():
+#     def get_default_role(self):
 #         return Role.objects.get(role_name='user').pk
 #
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -58,9 +58,9 @@ class DeviceConfig(models.Model):
 #     user_sname = models.CharField(max_length=50)
 #     user_email = models.EmailField()
 #     user_phone = models.CharField(max_length=20)
-#
-#     def __str__(self):
-#         return f"{self.user_fname} {self.user_sname}"
+
+    def __str__(self):
+        return f"{self.user_fname} {self.user_sname}"
 
 
 class Booking(models.Model):
@@ -79,13 +79,7 @@ class Booking(models.Model):
 
 
 
-class Role(models.Model):
-    ROLE_CHOICES = (
-        ('user', 'User'),
-        ('admin', 'Admin'),
-    )
-    role_name = models.CharField(max_length=50, choices=ROLE_CHOICES)
-    role_desc = models.CharField(max_length=200, null=True, blank=True)
+
 
     def __str__(self):
         return self.role_name
