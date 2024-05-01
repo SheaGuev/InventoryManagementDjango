@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/edit_device.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/device.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/edit_device.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/edit_device.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/device.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/device.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,12 +67,22 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SheaGuev/InventoryManagementDjango.git&quot;,
-    &quot;accountId&quot;: &quot;d9135f87-3044-494c-90af-a9da3a3fa16d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SheaGuev/InventoryManagementDjango.git",
+    "accountId": "d9135f87-3044-494c-90af-a9da3a3fa16d"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "SheaGuev",
+    "repository": "InventoryManagementDjango"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -93,23 +95,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;equipment&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "#2 on equipment",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
@@ -226,24 +228,24 @@
     <MESSAGE value="main template" />
     <option name="LAST_COMMIT_MESSAGE" value="main template" />
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "equipment",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "equipment",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
     }
   ],
-  "lastFilter": {
-    "branch": "equipment",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;equipment&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
 </project>

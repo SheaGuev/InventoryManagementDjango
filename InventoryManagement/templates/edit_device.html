@@ -4,10 +4,12 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalLabel">Edit Device</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                {{ device.config.device_serial }}
             </div>
             <div class="modal-body" id="modal-body">
-                <form method="post" action="{% url 'edit_device' device.config.device_serial %}">
+                <form method="POST" action="{% url 'edit_device' device.config.device_serial %}">
                     {% csrf_token %}
+
                     {{ form.device_name.label_tag }} {{ form.device_name }} {{ form.device_name.errors }}
                     {{ form.device_type.label_tag }} {{ form.device_type }} {{ form.device_type.errors }}
                     {{ form.device_desc.label_tag }} {{ form.device_desc }} {{ form.device_desc.errors }}

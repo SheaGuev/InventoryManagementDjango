@@ -27,9 +27,8 @@ def search_view(request):
 
 def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
-    form = DeviceForm(instance=device)  # Create form instance with the device instance
+    form = DeviceForm(instance=device)
     return render(request, 'device.html', {'device': device, 'form': form})
-
 def _search(request):
         search = request.GET.get('search')
         return_date_gt = request.GET.get('return_day>')
@@ -76,17 +75,11 @@ def edit_device(request, device_serial):
     if request.method == 'POST':
         form = DeviceForm(request.POST, instance=device)
         if form.is_valid():
-            device_config = device.config
-            device_config.save()  # Manually save the DeviceConfig instance
             device = form.save()
-            return redirect('edit_device', device_serial=device.config.device_serial)
+            return redirect('view_device', device_serial=device.config.device_serial)
     else:
         form = DeviceForm(instance=device)
-    return render(request, 'edit_device.html', {'form': form})
-
-
-
-
+    return render(request, 'device.html', {'form': form, 'device':device})
 
 # DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
 # from django.db.models import Count
