@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 from django.shortcuts import render, HttpResponse
 from . models import Booking, Device, DeviceConfig
-=======
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
->>>>>>> equipment
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import DeviceForm, NewDeviceForm
@@ -75,7 +72,6 @@ def _search(request):
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
 
-<<<<<<< HEAD
 def equipmentRequests(request):
     bookings = Booking.objects.all()
     return render(request, "equipmentRequest.html", { "bookings": bookings })
@@ -83,7 +79,6 @@ def equipmentRequests(request):
 def reservations(request):
     bookings = Booking.objects.filter(booking_status="Pending")
     return render(request, "reservations.html", { "bookings": bookings });
-=======
 def edit_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     if request.method == 'POST':
@@ -121,4 +116,3 @@ def add_device(request):
     else:
         form = NewDeviceForm()
     return render(request, 'add_device.html', {'form': form})
->>>>>>> equipment

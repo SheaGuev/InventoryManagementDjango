@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/device.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/htmx.min.js" afterDir="false" />
+=======
       <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/add_device.html" afterDir="false" />
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
@@ -15,8 +23,15 @@
       <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
+>>>>>>> Stashed changes
+=======
       <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     </list>
 =======
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="test models commit" />
@@ -45,12 +60,36 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+<<<<<<< Updated upstream
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SheaGuev"
+  }
+=======
+  "lastFilter": {}
+}]]></component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOL04MNc5uRHvd",
+        "number": 2
+      },
+      "lastSeen": 1714593474957
+    }
+  ]
+>>>>>>> Stashed changes
+}]]></component>
+=======
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;SheaGuev&quot;
   }
 }</component>
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -77,11 +116,30 @@
       </RecentBranches>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/SheaGuev/InventoryManagementDjango.git",
 <<<<<<< Updated upstream
     "accountId": "d9135f87-3044-494c-90af-a9da3a3fa16d"
+<<<<<<< HEAD
+=======
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SheaGuev/InventoryManagementDjango.git&quot;,
+    &quot;accountId&quot;: &quot;d9135f87-3044-494c-90af-a9da3a3fa16d&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;SheaGuev&quot;,
+    &quot;repository&quot;: &quot;InventoryManagementDjango&quot;
+>>>>>>> Stashed changes
+=======
 <<<<<<< HEAD
 =======
     "accountId": "d7e6b576-8df5-46a8-be2b-3fea2a2cc022"
@@ -101,8 +159,9 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> equipment
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -206,11 +265,19 @@
 <<<<<<< Updated upstream
 =======
       <workItem from="1714475514137" duration="32535000" />
+      <workItem from="1714593460736" duration="251000" />
+>>>>>>> Stashed changes
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+      <workItem from="1714475514137" duration="32535000" />
       <workItem from="1714595786431" duration="1039000" />
 >>>>>>> Stashed changes
 =======
       <workItem from="1714475514137" duration="32535000" />
 >>>>>>> equipment
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -309,12 +376,28 @@
       &quot;currentBranchFilter&quot;: true
     },
     {
+<<<<<<< HEAD
+      "branch": "equipment",
+      "currentBranchFilter": true
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "branch": "equipment",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "equipment",
+      "currentBranchFilter": true
+>>>>>>> Stashed changes
+=======
       &quot;branch&quot;: &quot;equipment&quot;,
       &quot;currentBranchFilter&quot;: true
     },
     {
       &quot;branch&quot;: &quot;equipment&quot;,
       &quot;currentBranchFilter&quot;: true
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     }
   ],
   &quot;lastFilter&quot;: {
