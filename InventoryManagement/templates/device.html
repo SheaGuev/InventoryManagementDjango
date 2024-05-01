@@ -9,27 +9,47 @@
 {% block content %}
     <div class="structure-main">
     <div class="electronics-panel">
+            <a href="{% url 'equipment' %}"><button id="back-button">Back</button></a>
 
-        <div class="product-item">
-{#        <p>Image path: {% static 'images/'|add:device.device_type.lower|add:'.png'  %}</p>#}
-
-                <img src="{% static 'images/'|add:device.device_type.lower.strip|add:'.png'  %}" alt="{{ device.device_type }}">
+        <div class="product-panel">
+        <div class="product-item" id="product-item">
+                <img src="{% static 'images/'|add:device.device_type.lower|add:'.png'  %}" alt="{{ device.device_type }}">
             <div class="product-info">
                 <h2>{{ device.device_name }}</h2>
-                <p> {{ device.device_type }}</p>
-                <p class="{% if device.device_status %}available{% else %}unavailable{% endif %}">
-                    {% if device.device_status %}Available{% else %}Unavailable{% endif %}</p>
+                <p>{{ device.device_desc }}</p>
+            </div>
+            </div>
+            <div class="product-stats">
                 <div class="actions">
-                    <a href="{% url 'device_view' device.config.device_serial %}"><button class="view-btn">View</button></a>
-                    <button class="edit-btn">Edit</button>
+                        <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                 </div>
+
+                <p>Type: <br> {{ device.device_type }}</p>
+                <p class="{% if device.device_status %}available{% else %}unavailable{% endif %}">
+                    Status:<br>{% if device.device_status %}Available{% else %}Unavailable{% endif %}</p>
+                <p>Return in:<br> {{ device.return_day }} days</p>
+
             </div>
-            </div>
+    </div>
 
-
-
-
+    {% include 'edit_device.html' %}
+    <!-- Modal -->
     </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.edit-btn').click(function(){
+                $('#editModal').modal('show');
+            });
+        });
+        $(document).ready(function(){
+            $('.btn-close').click(function(){
+                $('#editModal').modal('hide');
+            });
+        });
+        </script>
 
 {% endblock %}

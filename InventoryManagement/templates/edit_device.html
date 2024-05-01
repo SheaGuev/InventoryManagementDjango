@@ -1,0 +1,23 @@
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Device</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <form method="post" action="{% url 'edit_device' device.config.device_serial %}">
+                    {% csrf_token %}
+                    {{ form.device_name.label_tag }} {{ form.device_name }} {{ form.device_name.errors }}
+                    {{ form.device_type.label_tag }} {{ form.device_type }} {{ form.device_type.errors }}
+                    {{ form.device_desc.label_tag }} {{ form.device_desc }} {{ form.device_desc.errors }}
+{#                    {{ form.device_status.label_tag }} #}
+                    <br>{{ form.return_day.label_tag }} {{ form.return_day }} {{ form.return_day.errors }}
+                    <label>Available:</label> {{ form.device_status }} {{ form.device_status.errors }}
+                    <button type="submit" class="btn btn-primary" id="form-sub">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

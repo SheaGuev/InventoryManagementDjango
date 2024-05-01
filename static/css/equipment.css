@@ -43,6 +43,8 @@
             display: flex;
             flex-wrap: wrap;
             flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
 
         }
         .search-panel input, .search-panel select {
@@ -86,7 +88,7 @@
             gap: 5px;
             margin: 20px;
             padding: 8px;
-            height: 250px;
+            height: 300px;
             box-sizing: border-box;
 
 
@@ -99,6 +101,7 @@
             max-height: 150px;
             margin: auto 4%;
             object-fit: cover;
+            border-radius: 20px;
         }
         .product-info {
             padding: 20px;
@@ -106,6 +109,7 @@
             flex-direction: column;
             justify-content: center;
             text-align: left;
+            margin: 0 auto auto 0;
           }
         .product-info h2{
             text-align: left;
@@ -150,4 +154,9 @@
         }
         .pagination span:hover {
             background-color: #666;
+        }
+
+        .form-action-buttons{
+            display: flex;
+            justify-content: center;
         }

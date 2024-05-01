@@ -1,10 +1,15 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .forms import DeviceForm
+
+
+def home(request):
+    return render(request, 'index.html')
 
 # Create your views here.
-def home(request):
+def equipment(request):
     devices, search = _search(request)
     context = {
         "devices": devices,
@@ -22,7 +27,8 @@ def search_view(request):
 
 def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
-    return render(request, 'device.html', {'device': device})
+    form = DeviceForm(instance=device)  # Create form instance with the device instance
+    return render(request, 'device.html', {'device': device, 'form': form})
 
 def _search(request):
         search = request.GET.get('search')
@@ -64,3 +70,36 @@ def _search(request):
     #
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
+
+def edit_device(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    if request.method == 'POST':
+        form = DeviceForm(request.POST, instance=device)
+        if form.is_valid():
+            device_config = device.config
+            device_config.save()  # Manually save the DeviceConfig instance
+            device = form.save()
+            return redirect('edit_device', device_serial=device.config.device_serial)
+    else:
+        form = DeviceForm(instance=device)
+    return render(request, 'edit_device.html', {'form': form})
+
+
+
+
+
+# DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
+# from django.db.models import Count
+# from InventoryManagement.models import DeviceConfig
+#
+# # Find duplicate device_serial values
+# duplicates = (DeviceConfig.objects.values('device_serial')
+#               .annotate(device_serial_count=Count('device_serial'))
+#               .filter(device_serial_count__gt=1))
+#
+# for duplicate in duplicates:
+#     # Get all DeviceConfig objects with this device_serial
+#     configs = DeviceConfig.objects.filter(device_serial=duplicate['device_serial'])
+#
+#     for config in configs[1:]:
+#         config.delete()
