@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <!-- You can put your header content here -->
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content of the child templates will be inserted here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- You can put your footer content here -->
+    </footer>
+</body>
+</html>

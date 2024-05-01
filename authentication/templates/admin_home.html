@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="dashboard-container">
+        <div class="dashboard-section" id="user-management">
+            <h2>User Management</h2>
+            <!-- User Management content will go here -->
+        </div>
+    
+        <div class="dashboard-section" id="equipment-management">
+            <h2>Equipment Management</h2>
+            <!-- Equipment Management content will go here -->
+        </div>
+    
+        <div class="dashboard-section" id="reservations">
+            <h2>Reservations</h2>
+            <!-- Reservations content will go here -->
+        </div>
+    
+        <div class="dashboard-section" id="alerts">
+            <h2>Alerts</h2>
+            <!-- Alerts content will go here -->
+        </div>
+    
+        <div class="dashboard-section" id="reservation-requests">
+            <h2>Reservation Requests</h2>
+            <!-- Reservation Requests content will go here -->
+        </div>
+    
+        <div class="dashboard-section" id="inventory-analysis">
+            <h2>Inventory Analysis</h2>
+            <!-- Inventory Analysis content will go here -->
+        </div>
+    </div>
+{% endblock %}
+
+

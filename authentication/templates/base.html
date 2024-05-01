@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>Dashboard - Custom Layout</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block styles %}
+        {% endblock %}
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="logo">
+            <img src="{% static 'images/inventory.png' %}" alt="Logo" style="height: 40px;">
+        </div>
+            <div class="profile-info">
+
+                {% block user_name %}
+                    <p>John Doe</p>
+                {% endblock user_name %}
+
+                <img src="{% static "images/profile_icon.png" %}" alt="Profile">
+
+            </div>
+        </div>
+
+    <div class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Notifications</a>
+        <a href="#">Equipment</a>
+        <a href="#">Reservations</a>
+{#        {% if request.user.role == 'admin_role' %}#}
+        <a href="#">Reports</a>
+{#        {% endif %}#}
+        <a href="#">Alerts</a>
+        <div class="logout">
+            <a href="#">Log out</a>
+        </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <script type="text/javascript" src="{% static "htmx.min.js" %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
