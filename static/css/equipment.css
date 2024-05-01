@@ -162,3 +162,12 @@
             display: flex;
             justify-content: center;
         }
+
+        .addbtn{
+            padding: 5px;
+            background-color: #222222;
+        }
+
+        form{
+            text-align: center;
+        }

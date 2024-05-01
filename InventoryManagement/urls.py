@@ -7,5 +7,6 @@ urlpatterns = [
     path("search/", views.search_view, name="search"),
     path('device/<str:device_serial>/', views.device_view, name='device_view'),
     path('device/<str:device_serial>/edit/', views.edit_device, name='edit_device'),
+    path('add_device/', views.add_device, name='add_device'),
 
 ]

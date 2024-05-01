@@ -184,5 +184,18 @@
             margin-right: 5px;
         }
 
+        .go-back-btn {
 
+            color: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 20px;
+            padding: 5px;
+            transition: background-color 0.4s;
+        }
 
+    .go-back-btn:hover {
+        background-color: #f44336;
+        cursor: pointer;
+    }

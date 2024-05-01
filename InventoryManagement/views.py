@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .forms import DeviceForm
+from .forms import DeviceForm, NewDeviceForm
 
 
 def home(request):
@@ -96,3 +96,14 @@ def edit_device(request, device_serial):
 #
 #     for config in configs[1:]:
 #         config.delete()
+
+
+def add_device(request):
+    if request.method == 'POST':
+        form = NewDeviceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('equipment')
+    else:
+        form = NewDeviceForm()
+    return render(request, 'add_device.html', {'form': form})

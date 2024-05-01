@@ -17,30 +17,36 @@
                 <input type="text" placeholder="Search..." name="search" value="{{ search }}">
 
 
-            <input type="number" placeholder="return>" name="return_day>" value="{{ return_day }}" min="1" max="48">
-            <input type="number" placeholder="return<" name="return_day<" value="{{ return_day }}" min="1" max="48">
+                <input type="number" placeholder="return>" name="return_day>" value="{{ return_day }}" min="1" max="48">
+                <input type="number" placeholder="return<" name="return_day<" value="{{ return_day }}" min="1" max="48">
 
-            <select name="device_satus" >
-                <option value="">All</option>
-                <option name="available" value="available">Available</option>
-                <option name="unavailable" value="unavailable">Unavailable</option>
+                <select name="device_satus" >
+                    <option value="">All</option>
+                    <option name="available" value="available">Available</option>
+                    <option name="unavailable" value="unavailable">Unavailable</option>
+                </select>
 
-            </select>
-            <select name="device_type" >
-                <option value="">All</option>
-                <option value="laptop">Laptop</option>
-                <option value="tablet">Tablet</option>
-                <option value="3-in-1 tablet">3-in-1 Tablet</option>
-                <option value="Accessory">Accessories</option>
-                <option value="monitor">Monitor</option>
-                <option value="other">Other</option>
-            </select>
-                <div class="form-action-buttons">
+                <select name="device_type" >
+                    <option value="">All</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="3-in-1 tablet">3-in-1 Tablet</option>
+                    <option value="Accessory">Accessories</option>
+                    <option value="monitor">Monitor</option>
+                    <option value="other">Other</option>
+                </select>
+
                     <button class="savebtn" formaction="" name="">Save filters</button>
-                    <button class="resetbtn" formaction="reset">Reset filters</button>
-                </div>
-
+                   <a href="{% url 'equipment' %}">
+                       <button type="button" class="resetbtn" >Reset filters</button>
+                   </a>
+                     <a href="{% url 'add_device' %}">
+                        <button type="button" class="addbtn" >Add new device</button>
+                    </a>
             </form>
+
+
+
         </div>
 
 
