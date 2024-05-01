@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "InventoryManagement",
     'django_bootstrap5',
+    "authentication"
 
 
 ]
@@ -129,3 +130,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+AUTH_USER_MODEL = 'authentication.CustomUser'
