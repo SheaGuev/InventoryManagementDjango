@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 auto;
+            color: white;
+        }
+        input, select {
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .container-add-form {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #222222;
+            width: 60%;
+    /* margin: auto; */
+            margin-left: 30%;
+            margin-top: 8%;
+            padding: 5%;
+        }
+
+        .container-add-form h2 {
+            color: white;
+            margin-bottom: 25px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="glob-container">
+
+    <div class="container-add-form">
+    <a onclick="goBack()" class="go-back-btn">< Go Back</a>
+    <h2>Add new device</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add device</button>
+    </form>
+
+
+
+    </div>
+    </div>
+{% endblock %}

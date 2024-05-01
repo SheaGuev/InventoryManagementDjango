@@ -6,17 +6,17 @@
   <component name="ChangeListManager">
 <<<<<<< Updated upstream
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/device.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/htmx.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/add_device.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/device.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
     </list>
 =======
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="test models commit" />
@@ -32,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -45,12 +45,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "SheaGuev"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SheaGuev&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -82,8 +82,11 @@
     "url": "https://github.com/SheaGuev/InventoryManagementDjango.git",
 <<<<<<< Updated upstream
     "accountId": "d9135f87-3044-494c-90af-a9da3a3fa16d"
+<<<<<<< HEAD
 =======
     "accountId": "d7e6b576-8df5-46a8-be2b-3fea2a2cc022"
+=======
+>>>>>>> equipment
   },
   "recentNewPullRequestHead": {
     "server": {
@@ -94,7 +97,10 @@
     },
     "owner": "SheaGuev",
     "repository": "InventoryManagementDjango"
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> equipment
   }
 }]]></component>
   <component name="ProblemsViewState">
@@ -117,7 +123,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "equipment",
+    "git-widget-placeholder": "#2 on equipment",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -146,10 +152,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\images" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\css" />
-      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
     </key>
   </component>
   <component name="RunManager">
@@ -196,11 +202,15 @@
       <updated>1714096611830</updated>
       <workItem from="1714096611832" duration="248000" />
       <workItem from="1714096877444" duration="59573000" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
       <workItem from="1714475514137" duration="32535000" />
       <workItem from="1714595786431" duration="1039000" />
 >>>>>>> Stashed changes
+=======
+      <workItem from="1714475514137" duration="32535000" />
+>>>>>>> equipment
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -218,9 +228,12 @@
       <option name="project" value="LOCAL" />
       <updated>1714406398672</updated>
     </task>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <option name="localTasksCounter" value="3" />
 =======
+=======
+>>>>>>> equipment
     <task id="LOCAL-00003" summary="main template">
       <option name="closed" value="true" />
       <created>1714475668976</created>
@@ -237,6 +250,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714585775342</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00005" summary="test models commit">
       <option name="closed" value="true" />
       <created>1714596850411</created>
@@ -247,6 +261,9 @@
     </task>
     <option name="localTasksCounter" value="6" />
 >>>>>>> Stashed changes
+=======
+    <option name="localTasksCounter" value="5" />
+>>>>>>> equipment
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +285,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="equipment" />
                       </list>
                     </value>
                   </entry>
@@ -285,20 +302,24 @@
     <MESSAGE value="test models commit" />
     <option name="LAST_COMMIT_MESSAGE" value="test models commit" />
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "equipment",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
+    },
+    {
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
     }
   ],
-  "lastFilter": {
-    "branch": "equipment",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;equipment&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
 </project>
