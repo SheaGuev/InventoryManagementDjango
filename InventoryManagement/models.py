@@ -76,8 +76,7 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.device}"
-<<<<<<< HEAD
-=======
+
 
 
 class Role(models.Model):
@@ -104,7 +103,3 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
-
-
->>>>>>> equipment
