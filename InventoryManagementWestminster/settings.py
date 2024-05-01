@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "InventoryManagement",
     'django_bootstrap5',
+    "authentication"
 
 
 ]
