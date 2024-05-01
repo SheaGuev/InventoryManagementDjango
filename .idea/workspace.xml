@@ -4,24 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/search.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/static/css/device.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/static/htmx.min.js" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/InventoryManagement/templates/add_device.html" afterDir="false" />
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/device.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/device.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentSearch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+<<<<<<< HEAD
 =======
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" afterDir="false" />
 >>>>>>> Stashed changes
+=======
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/equipment.css" afterDir="false" />
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     </list>
+=======
+    <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="test models commit" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,8 +47,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -46,6 +60,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
 <<<<<<< Updated upstream
   "lastFilter": {
@@ -67,6 +82,14 @@
   ]
 >>>>>>> Stashed changes
 }]]></component>
+=======
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SheaGuev&quot;
+  }
+}</component>
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -97,7 +120,9 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/SheaGuev/InventoryManagementDjango.git",
+<<<<<<< Updated upstream
     "accountId": "d9135f87-3044-494c-90af-a9da3a3fa16d"
+<<<<<<< HEAD
 =======
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -114,6 +139,27 @@
     &quot;owner&quot;: &quot;SheaGuev&quot;,
     &quot;repository&quot;: &quot;InventoryManagementDjango&quot;
 >>>>>>> Stashed changes
+=======
+<<<<<<< HEAD
+=======
+    "accountId": "d7e6b576-8df5-46a8-be2b-3fea2a2cc022"
+=======
+>>>>>>> equipment
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "SheaGuev",
+    "repository": "InventoryManagementDjango"
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+=======
+>>>>>>> equipment
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
   }
 }</component>
   <component name="ProblemsViewState">
@@ -136,7 +182,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "equipment",
+    "git-widget-placeholder": "#2 on equipment",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -165,10 +211,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\images" />
       <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\static\css" />
-      <recent name="C:\Users\sheas\PycharmProjects\InventoryManagementWestminster\InventoryManagement" />
     </key>
   </component>
   <component name="RunManager">
@@ -215,11 +261,23 @@
       <updated>1714096611830</updated>
       <workItem from="1714096611832" duration="248000" />
       <workItem from="1714096877444" duration="59573000" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
       <workItem from="1714475514137" duration="32535000" />
       <workItem from="1714593460736" duration="251000" />
 >>>>>>> Stashed changes
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+      <workItem from="1714475514137" duration="32535000" />
+      <workItem from="1714595786431" duration="1039000" />
+>>>>>>> Stashed changes
+=======
+      <workItem from="1714475514137" duration="32535000" />
+>>>>>>> equipment
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -237,7 +295,42 @@
       <option name="project" value="LOCAL" />
       <updated>1714406398672</updated>
     </task>
+<<<<<<< HEAD
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="3" />
+=======
+=======
+>>>>>>> equipment
+    <task id="LOCAL-00003" summary="main template">
+      <option name="closed" value="true" />
+      <created>1714475668976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714475668976</updated>
+    </task>
+    <task id="LOCAL-00004" summary="main template">
+      <option name="closed" value="true" />
+      <created>1714585775342</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714585775342</updated>
+    </task>
+<<<<<<< HEAD
+    <task id="LOCAL-00005" summary="test models commit">
+      <option name="closed" value="true" />
+      <created>1714596850411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714596850411</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+>>>>>>> Stashed changes
+=======
+    <option name="localTasksCounter" value="5" />
+>>>>>>> equipment
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +352,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="equipment" />
                       </list>
                     </value>
                   </entry>
@@ -273,15 +366,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="main template" />
-    <option name="LAST_COMMIT_MESSAGE" value="main template" />
+    <MESSAGE value="test models commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test models commit" />
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
+<<<<<<< HEAD
       "branch": "equipment",
       "currentBranchFilter": true
 <<<<<<< Updated upstream
@@ -295,11 +390,19 @@
       "branch": "equipment",
       "currentBranchFilter": true
 >>>>>>> Stashed changes
+=======
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
+    },
+    {
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
+>>>>>>> 48fa8bc281737357b32f02604e1b482f3ea8d9d7
     }
   ],
-  "lastFilter": {
-    "branch": "equipment",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;equipment&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
 </project>
