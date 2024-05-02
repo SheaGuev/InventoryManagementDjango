@@ -1,4 +1,5 @@
 from datetime import date
+from multiprocessing.managers import BaseManager
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
@@ -163,8 +164,11 @@ class UserNotification(models.Model):
     message =  models.CharField(max_length=65535)
     created = models.DateTimeField(auto_now_add=True)
 
-    def addNotification(self, user, message):
-        notification = self.objects.model(user, message)
+    def createNew(user, message):
+        notification = UserNotification()
+        notification.user = user
+        notification.message = message
+
         notification.save()
     
     def __str__(self):
@@ -182,8 +186,10 @@ class Booking(models.Model):
     device_exp_ret_date = models.DateField()
     device_act_ret_date = models.DateField(null=True, blank=True)
 
-    def reserve_device(self, deviceId, user, **extra_fields):
-        booking = self.objects.model(deviceId, user, **extra_fields)
+    def reserve_device(deviceId, user):
+        booking = Booking()
+        booking.deviceId = deviceId
+        booking.user = user
         booking.booking_status = "reserved"
         booking.booking_req_date = date.today()
 

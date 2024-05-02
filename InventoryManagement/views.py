@@ -215,14 +215,19 @@ def logoutUser(request):
 # Harsh's views
 @login_required
 def user_home(request):
+    
+    print(notifications)
     notifications = UserNotification.objects.order_by("-created")
     return render(request, 'user_home.html', { "notifications": notifications })
 
 @login_required
 def admin_home(request):
+    print("*****")
     users = CustomUser.objects.all()
     notifications = UserNotification.objects.order_by("-created")
-    return render(request, 'admin_home.html', {'users':users, "nofications": notifications})
+
+    print(notifications)
+    return render(request, 'admin_home.html', {'users':users, "notifications": notifications})
     devices, search = _search(request)
     context = {
         "devices": devices,
@@ -289,7 +294,9 @@ def login_request(request):
 
 
 def custom_logout(request):
+    print(request.user.id)
     logout(request)
+
     return redirect('login')
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Location, Device, DeviceConfig, Role, CustomUser, Booking
+from .models import Location, Device, DeviceConfig, Role, CustomUser, Booking, UserNotification
 # Register your models here.
 # Register your models here.
 admin.site.register(Location)
@@ -8,3 +8,4 @@ admin.site.register(DeviceConfig)
 admin.site.register(Role)  # Register the Role model
 admin.site.register(CustomUser)
 admin.site.register(Booking)
+admin.site.register(UserNotification)
