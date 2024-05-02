@@ -13,8 +13,17 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
 
+# @login_required
+# def admin_home(request):
+#     users = CustomUser.objects.all()
+#     return render(request, 'admin_home.html', {'users': users})
+
+
 @login_required
 def home(request):
+    # context = {
+    #     "user": CustomUser,
+    # }
     return render(request, 'index.html')
 
 @login_required

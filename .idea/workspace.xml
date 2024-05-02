@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/equipmentRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/equipmentRequest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/requests.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/reservations.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/reservations.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/management/commands/assign_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/management/commands/assign_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +161,7 @@
       <updated>1714096611830</updated>
       <workItem from="1714096611832" duration="248000" />
       <workItem from="1714096877444" duration="59573000" />
-      <workItem from="1714600432610" duration="13939000" />
+      <workItem from="1714600432610" duration="16060000" />
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -184,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714611167471</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="main template">
+      <option name="closed" value="true" />
+      <created>1714618748122</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714618748122</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

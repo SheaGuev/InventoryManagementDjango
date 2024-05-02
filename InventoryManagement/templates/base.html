@@ -41,9 +41,9 @@
         <a href="{% url 'home' %}">Notifications</a>
         <a href="{% url 'equipment' %}">Equipment</a>
     {#        ADD A LINK TO THE REPORTS PAGE ONLY IF USER ROLE IS ADMIN!!#}
-        {% if user_role == 'admin' %}
+        {% if user.role.role_name == 'admin' %}
         <a href="{% url 'reports' %}">Reports</a>
-        {% else %}
+        {% elif user.role.role_name == "user" %}
         <a href="{% url 'reservations' %}">Reservations</a>
         {% endif %}
         <div class="logout">
