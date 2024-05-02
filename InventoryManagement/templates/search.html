@@ -11,7 +11,11 @@
                     {% if device.config%}
                     <a href="{% url 'device_view' device.config.device_serial %}"><button class="view-btn">View</button></a>
                     {% endif %}
+                    {% if user.role.role_name == "admin" %}
                     <a href="{% url 'edit_device' device.config.device_serial %}"><button class="edit-btn">Edit</button></a>
+                    {% else %}
+                    <a href="{% url 'edit_device' device.config.device_serial %}"><button class="edit-btn" id="back-button">Edit</button></a>
+                    {% endif %}
                 </div>
 
             </div>
