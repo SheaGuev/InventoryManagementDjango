@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.home, name="home"),  # Changed from 'index' to 'home'
+    # path("", views.home, name="home"),  # Changed from 'index' to 'home'
     path("equipment/", views.equipment, name="equipment"),
     path("search/", views.search_view, name="search"),
 
@@ -18,8 +18,8 @@ urlpatterns = [
 
 
     # Harsh's URLs
-    path('admin_home/', views.admin_home, name='admin_home'),
-    path('user_home/', views.user_home, name='user_home'),
+    path('', views.admin_home, name='admin_home'),
+    path('', views.user_home, name='user_home'),
     path('logout/', views.custom_logout, name='logout'),
     path('make_admin/<int:user_id>/', views.make_admin, name='make_admin'),
     path('delete_user/<int:user_id>/', views.delete_user, name='delete_user'),

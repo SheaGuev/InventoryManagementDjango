@@ -22,12 +22,12 @@ from django.views.decorators.http import require_POST
 #     return render(request, 'admin_home.html', {'users': users})
 
 
-@login_required
-def home(request):
-    # context = {
-    #     "user": CustomUser,
-    # }
-    return render(request, 'index.html')
+# @login_required
+# def home(request):
+#     # context = {
+#     #     "user": CustomUser,
+#     # }
+#     return render(request, 'index.html')
 
 @login_required
 def equipment(request):
