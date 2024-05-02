@@ -14,4 +14,5 @@ urlpatterns = [
     path('add_device/', views.add_device, name='add_device'),
 
 
+    path("reports", views.reports, name="reports")
 ]

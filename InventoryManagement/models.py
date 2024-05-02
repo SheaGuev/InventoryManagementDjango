@@ -26,6 +26,7 @@ class Device(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     config = models.ForeignKey('DeviceConfig', on_delete=models.CASCADE, null=False, blank=False)
     return_day = models.IntegerField(default=0)
+    device_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.device_name
@@ -138,7 +139,10 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
         return self.create_user(email, username, password, **extra_fields)
 def get_user_role():
-    return Role.objects.get_or_create(role_name='user')[0].id
+    try: 
+        return Role.objects.get_or_create(role_name='user')[0].id
+    except: 
+        return 3
 
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=255, unique=True, blank=False)

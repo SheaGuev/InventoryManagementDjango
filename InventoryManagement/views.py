@@ -10,6 +10,7 @@ from django.contrib import messages
 import logging
 from InventoryManagement.models import CustomUser
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 
 @login_required
@@ -130,3 +131,29 @@ def add_device(request):
     else:
         form = NewDeviceForm()
     return render(request, 'add_device.html', {'form': form})
+class DeviceGroup(object):
+    def __init__(self, name, devices, total):
+        self.name = name
+        self.devices = devices
+        self.total = total
+
+    devices = {}
+    total = 0
+    name = ""
+
+def reports(request):
+    deviceTypes = Device.objects.all().values_list("device_type", flat=True).distinct()
+    deviceGroups = {}
+
+    for type in deviceTypes:
+        devices = Device.objects.filter(device_type=type)
+        total = 0
+        name = str(type)
+        
+        for device in devices:
+            total += device.device_count
+
+        deviceGroups[type] = DeviceGroup(name, devices, total)
+
+    print(deviceGroups)
+    return render(request, "reports.html", { "groups": deviceGroups })
