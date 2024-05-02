@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
-from . models import Booking, Device, DeviceConfig
+
+from authentication.forms import NewUserForm, LoginForm
+from .models import Booking, Device, DeviceConfig, Role
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
 from django.db.models import Q
@@ -11,11 +13,21 @@ import logging
 from InventoryManagement.models import CustomUser
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.views.decorators.http import require_POST
 
 
-@login_required
-def home(request):
-    return render(request, 'index.html')
+# @login_required
+# def admin_home(request):
+#     users = CustomUser.objects.all()
+#     return render(request, 'admin_home.html', {'users': users})
+
+
+# @login_required
+# def home(request):
+#     # context = {
+#     #     "user": CustomUser,
+#     # }
+#     return render(request, 'index.html')
 
 @login_required
 def equipment(request):
@@ -158,3 +170,100 @@ def reports(request):
 
     print(deviceGroups)
     return render(request, "reports.html", { "groups": deviceGroups })
+
+
+
+# Harsh's views
+@login_required
+def user_home(request):
+    return render(request, 'user_home.html')
+
+@login_required
+def admin_home(request):
+    users = CustomUser.objects.all()
+    return render(request, 'admin_home.html', {'users':users})
+
+
+logger = logging.getLogger(__name__)
+
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            try:
+                user = form.save()
+                login(request, user)
+                logger.info('User registered successfully. Email: %s', user.email)
+                messages.success(request, "Registration successful.")
+                return redirect("login")  # Redirect to the login page
+            except Exception as e:
+                logger.error('Error during user creation: %s', str(e))
+                messages.error(request, "Unsuccessful registration. Error during user creation.")
+        else:
+            logger.warning('Unsuccessful registration. Form errors: %s', form.errors)
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render(request=request, template_name="registration.html", context={"register_form": form})
+
+def login_request(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(email=email, password=password)
+            if user is not None:
+                login(request, user)
+                logger.info('User authenticated, redirecting to placeholder page.')
+                if user.role.role_name == 'admin':
+                    return redirect("admin_home")  # Redirect to the admin home page
+                else:
+                    return redirect("user_home")  # Redirect to the user home page
+            else:
+                logger.warning('Invalid email or password. Email: %s', email)
+                messages.error(request, "Invalid email or password.")
+    else:
+        form = LoginForm()
+    return render(request, "login.html", {"form": form})
+
+
+def custom_logout(request):
+    logout(request)
+    return redirect('login')
+
+
+class UserForm:
+    pass
+
+
+def placeholder(request):
+    return render(request, 'placeholder.html')
+
+
+def list_users(request):
+    users = CustomUser.objects.all()
+    return render(request, 'list_users.html', {'users': users})
+
+
+@require_POST
+def make_admin(request, user_id):
+    user = CustomUser.objects.get(id=user_id)
+    admin_role = Role.objects.get(role_name='admin')  # Retrieve the 'admin' role
+    user.role = admin_role  # Assign the 'admin' role to the user
+    user.save()
+    return redirect('admin_home')
+
+@require_POST
+def make_user(request, user_id):
+    user = CustomUser.objects.get(id=user_id)
+    user_role = Role.objects.get(role_name='user')  # Retrieve the 'user' role
+    user.role = user_role  # Assign the 'admin' role to the user
+    user.save()
+    return redirect('admin_home')
+
+@require_POST
+def delete_user(request, user_id):
+    user = CustomUser.objects.get(id=user_id)
+    user.delete()
+    return redirect('admin_home')
+

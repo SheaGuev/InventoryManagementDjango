@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from authentication.models import CustomUser, Role
+from InventoryManagement.models import CustomUser, Role
 
 class Command(BaseCommand):
     help = 'Assigns the admin role to a user'

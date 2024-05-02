@@ -171,3 +171,14 @@
         form{
             text-align: center;
         }
+
+        #back-button {
+    background-color: rgb(161, 204, 165); /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 0 0 20px;
+}
