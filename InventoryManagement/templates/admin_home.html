@@ -45,7 +45,15 @@
         <div class="dashboard-column">
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
-                <!-- Alerts content will go here -->
+                
+                {% for notification in notifications %}
+                    <div class="mt2 flex">
+                        <span>
+                            {{ notification.created }}
+                        </span>
+                        {{ notification.message }}
+                    </div>
+                {% endfor %}
             </div>
         
             <div class="dashboard-section" id="reservation-requests">

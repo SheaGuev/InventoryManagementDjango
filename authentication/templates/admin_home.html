@@ -12,7 +12,7 @@
         <div class="dashboard-column">
             <div class="dashboard-section" id="user-management">
                 
-                <h3>User Management</h3>
+                <h3>User Managements</h3>
                 {% for n in notifications %}
                     {{n}}
                 {% endfor %}
@@ -53,13 +53,11 @@
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
                 
-
                 {% for notification in notifications %}
                     <div class="mt2">
                         {{ notification.message }}
                     </div>
                 {% endfor %}
-                <!-- Alerts content will go here -->
             </div>
         
             <div class="dashboard-section" id="reservation-requests">

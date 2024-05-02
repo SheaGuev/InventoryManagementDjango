@@ -215,9 +215,13 @@ def logoutUser(request):
 # Harsh's views
 @login_required
 def user_home(request):
-    
     print(notifications)
-    notifications = UserNotification.objects.order_by("-created")
+
+    try: 
+        notifications = UserNotification.objects.order_by("-created")
+    except:
+        notifications = list()
+
     return render(request, 'user_home.html', { "notifications": notifications })
 
 '''
@@ -241,13 +245,20 @@ def admin_home(request):
 def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
-    notifications = UserNotification.objects.order_by("-created")
+    
+    try: 
+        notifications = list(UserNotification.objects.order_by("-created"))
+    except:
+        notifications = list()
+
     context = {
         "devices": devices,
         "search": search or "",
         'users': users,
         "notifications": notifications
     }
+
+    print(context)
     return render(request, 'admin_home.html', context)
 
 
