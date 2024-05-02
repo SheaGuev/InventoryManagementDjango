@@ -13,8 +13,12 @@
                     {% endif %}
                     {% if user.role.role_name == "admin" %}
                     <a href="{% url 'edit_device' device.config.device_serial %}"><button class="edit-btn">Edit</button></a>
-                    {% else %}
-                    <a href="{% url 'edit_device' device.config.device_serial %}"><button class="edit-btn" id="back-button">Edit</button></a>
+{#                    {% else %}#}
+{#                        {% if device.booking and device.booking.booking_status == "reserved" %}#}
+{#                                <button type="button">Cancel</button>#}
+{#                        {% else %}#}
+{#                                <a href="{% url 'reserve_device' device.config.device_serial %}"><button class="edit-btn" id="back-button">Reserve</button></a>#}
+{#                        {% endif %}#}
                     {% endif %}
                 </div>
 

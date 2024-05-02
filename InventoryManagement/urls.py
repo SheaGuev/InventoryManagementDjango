@@ -3,19 +3,20 @@ from . import views
 
 urlpatterns = [
     # path("", views.home, name="home"),  # Changed from 'index' to 'home'
+    #Shea's URLs
     path("equipment/", views.equipment, name="equipment"),
     path("search/", views.search_view, name="search"),
-
     path("?<str:query>", views.search_view, name="search"), # Allows search on the home page
-    path("reservations/", views.reservations, name="reservations"),
-    path("requests/", views.equipmentRequests, name="requests"),
     path('device/<str:device_serial>/', views.device_view, name='device_view'),
     path('device/<str:device_serial>/edit/', views.edit_device, name='edit_device'),
     path('add_device/', views.add_device, name='add_device'),
+    path('reserve_device/<str:device_serial>/', views.reserve_device, name='reserve_device'),
+    path('cancel_reservation/<str:device_serial>/', views.cancel_reservation, name='cancel_reservation'),
 
-
+    #Micah's URLs
     path("reports/", views.reports, name="reports"),
-
+    path("reservations/", views.reservations, name="reservations"),
+    path("requests/", views.equipmentRequests, name="requests"),
 
     # Harsh's URLs
     path('admin_home/', views.admin_home, name='admin_home'),
