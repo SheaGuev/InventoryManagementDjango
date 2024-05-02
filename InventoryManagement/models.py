@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
@@ -26,6 +27,7 @@ class Device(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     config = models.ForeignKey('DeviceConfig', on_delete=models.CASCADE, null=False, blank=False)
     return_day = models.IntegerField(default=0)
+    # device_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.device_name
@@ -166,6 +168,20 @@ class Booking(models.Model):
     collected_date = models.DateTimeField(null=True, blank=True)
     device_exp_ret_date = models.DateField()
     device_act_ret_date = models.DateField(null=True, blank=True)
+
+    def reserve_device(self, deviceId, user, **extra_fields):
+        booking = self.objects.model(deviceId, user, **extra_fields)
+        booking.booking_status = "reserved"
+        booking.booking_req_date = date.today()
+
+        booking.save()
+        return
+    
+    def cancel_reservation(self, bookingId, userId):
+        booking = self.objects.get(pk=bookingId,user__id=userId)
+        if booking:
+            booking.booking_status = "cancelled"
+            booking.save()
 
     def __str__(self):
         return f"{self.user} - {self.device}"

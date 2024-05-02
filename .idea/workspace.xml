@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template" />
+=======
+    <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
+    </list>
+>>>>>>> 63e3915f208513872b45e7438d626f34480481f5
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,8 +162,12 @@
       <updated>1714096611830</updated>
       <workItem from="1714096611832" duration="248000" />
       <workItem from="1714096877444" duration="59573000" />
+<<<<<<< HEAD
       <workItem from="1714600432610" duration="10310000" />
       <workItem from="1714614650515" duration="813000" />
+=======
+      <workItem from="1714600432610" duration="13939000" />
+>>>>>>> 63e3915f208513872b45e7438d626f34480481f5
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -171,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714406398672</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="main template">
+      <option name="closed" value="true" />
+      <created>1714611167471</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714611167471</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +215,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -220,6 +242,7 @@
       &quot;currentBranchFilter&quot;: true
     },
     {
+<<<<<<< HEAD
       &quot;branch&quot;: &quot;equipment&quot;,
       &quot;currentBranchFilter&quot;: true
     }
@@ -227,6 +250,19 @@
   &quot;lastFilter&quot;: {
     &quot;branch&quot;: &quot;equipment&quot;,
     &quot;currentBranchFilter&quot;: true
+=======
+      "branch": "equipment",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    }
+  ],
+  "lastFilter": {
+    "branch": "master",
+    "currentBranchFilter": true
+>>>>>>> 63e3915f208513872b45e7438d626f34480481f5
   }
 }</component>
 </project>

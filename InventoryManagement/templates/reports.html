@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="static/css/common.css">    
+<link rel="stylesheet" href="static/css/basscss.css">
+{% endblock %}
+
+{% block content %}
+<div class="page-root">
+  <h3 class="mx-auto mb-2">
+    Generate Reports
+  </h3>
+
+  <h2 class="simple-hd">
+    Inventory Summary
+  </h2>
+
+  <div class="flex flex-wrap">
+    {% for name, group in groups.items %}
+    
+    {% for device in group.devices %}
+      {% if forloop.counter0 == 0 %}
+      <div class="ml4">
+        {% load static %}
+        <img src="{% static 'images/'|add:device.device_type.lower|add:'.png'  %}" alt="{{ device.device_type }}"
+        style="width: 200px"
+        >
+        <h3 class="center">
+          {{ name }}
+        </h3>
+
+        <h1 class="center">
+          {{ group.total }}
+        </h1>
+      </div>
+      {% endif %} 
+    {% endfor %}    
+  {% endfor %}
+
+
+  
+  </div>
+
+  <h2 class="simple-hd mt4">
+    Equipment Count
+  </h2>
+
+  
+
+</div>
+{% endblock %}

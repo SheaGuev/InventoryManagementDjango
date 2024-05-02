@@ -183,8 +183,25 @@
             cursor: pointer;
             margin-right: 5px;
         }
-<<<<<<< HEAD
-=======
+
+        .page-root {
+            align-items: center;
+            border-radius: 30px;
+            position: relative;
+            margin-left: 27%;
+            margin-top: 110px;
+            padding: 20px 0;
+            color: white;
+            width: 66%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .simple-hd {
+            color: #a1cca5;
+            font-size: 18px;
+            text-align: center;
+        }
 
         .go-back-btn {
 
@@ -201,4 +218,3 @@
         background-color: #f44336;
         cursor: pointer;
     }
->>>>>>> equipment
