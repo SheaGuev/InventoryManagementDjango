@@ -151,7 +151,7 @@ def reports(request):
         name = str(type)
         
         for device in devices:
-            total += device.device_count
+            total += device.device_count #causing error?
 
         deviceGroups[type] = DeviceGroup(name, devices, total)
 
