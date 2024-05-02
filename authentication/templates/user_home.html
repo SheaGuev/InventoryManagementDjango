@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Placeholder Page</title>
-</head>
-<body>
-    <h1>Welcome, you have logged in successfully!</h1>
-    <h1>USER PAGE</h1>  
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/U-dashboard.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="dashboard-container">
+        <div class="dashboard-column">
+            <div class="dashboard-section" id="equipment-management">
+                <h3>Equipment Management</h3>
+                <!-- Equipment Management content will go here -->
+            </div>
+        </div>
+        <div class="dashboard-column">
+            <div class="dashboard-section" id="alerts">
+                <h3>Alerts</h3>
+                <!-- Alerts content will go here -->
+            </div>
+            <div class="dashboard-section" id="reservations">
+                <h3>Reservations</h3>
+                <!-- Reservations content will go here -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
