@@ -138,7 +138,10 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
         return self.create_user(email, username, password, **extra_fields)
 def get_user_role():
-    return Role.objects.get_or_create(role_name='user')[0].id
+    try: 
+        return Role.objects.get_or_create(role_name='user')[0].id
+    except: 
+        return 3
 
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=255, unique=True, blank=False)
