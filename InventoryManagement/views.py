@@ -1,3 +1,6 @@
+from datetime import date
+
+from django.http import HttpRequest, request
 from django.shortcuts import render, HttpResponse
 
 from authentication.forms import NewUserForm, LoginForm
@@ -14,6 +17,8 @@ from InventoryManagement.models import CustomUser
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.views.decorators.http import require_POST
+from django.contrib.auth import get_user
+
 
 
 # @login_required
@@ -44,6 +49,7 @@ def search_view(request):
     context = {
         "devices": devices,
         "search": search or "",
+        'current_path': request.path,
     }
     return render(request, 'search.html', context)
 
@@ -51,8 +57,8 @@ def search_view(request):
 def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
     form = DeviceForm(instance=device)
-    return render(request, 'device.html', {'device': device, 'form': form})
-
+    booking = Booking.objects.filter(device=device, user=request.user).first()
+    return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking})
 @login_required
 def _search(request):
         search = request.GET.get('search')
@@ -87,6 +93,36 @@ def _search(request):
 
         return page, search or ""
 
+from datetime import timedelta
+
+@login_required
+def reserve_device(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    booking = Booking(device=device, user=request.user)
+    booking.booking_status = "reserved"
+    booking.booking_req_date = date.today()
+    booking.device_exp_ret_date = date.today() + timedelta(days=7)  # Set expected return date to a week from today
+    booking.save()
+    return redirect('equipment')
+
+@login_required
+def cancel_reservation(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    booking = get_object_or_404(Booking, device=device, user=request.user)
+    booking.delete()
+    return redirect('device_view', device_serial=device.config.device_serial)
+
+
+# @login_required
+# def reserve_device(self, user, device_serial):
+#     if '/device/' in request.GET:
+#         device = get_object_or_404(Device, config__device_serial=device_serial)
+#     booking = self.objects.model(device, user)
+#     booking.booking_status = "reserved"
+#     booking.booking_req_date = date.today()
+#
+#     booking.save()
+#     return
 
     # if request.method == 'POST':
     #     search_text = request.POST['search_text']
@@ -116,8 +152,7 @@ def edit_device(request, device_serial):
             return redirect('view_device', device_serial=device.config.device_serial)
     else:
         form = DeviceForm(instance=device)
-    return render(request, 'device.html', {'form': form, 'device':device})
-
+    return render(request, 'device.html', {'form': form, 'device': device})
 # DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
 # from django.db.models import Count
 # from InventoryManagement.models import DeviceConfig

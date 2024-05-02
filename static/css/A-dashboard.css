@@ -41,7 +41,7 @@
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(2) {
-    height: 300px; /* Adjust this value to your needs */
+    height: 400px; /* Adjust this value to your needs */
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(3) {
@@ -69,13 +69,23 @@
 #user-management {
     height: 200px; /* Adjust as needed */
     overflow: auto;
-<<<<<<< HEAD
-=======
+
 }
 #equipment-management {
     overflow: auto;
+
 }
 #product-panel{
     overflow: auto;
->>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb
+}
+#form-plugin-equipment{
+    text-align: left;
+
+}
+
+#form-plugin-equipment select, #form-plugin-equipment type, #form-plugin-equipment input, #form-plugin-equipment button{
+    padding: 5px;
+/*=======*/
+/*>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb*/
+/*>>>>>>> 73197cbca9206b5b68d4cf8a55d4f30d3a0d980f*/
 }
