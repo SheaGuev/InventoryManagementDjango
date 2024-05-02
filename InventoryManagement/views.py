@@ -4,12 +4,16 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+<<<<<<< Updated upstream
 from .forms import DeviceForm, NewDeviceForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 import logging
 from InventoryManagement.models import CustomUser
 from django.contrib.auth.decorators import login_required
+=======
+from django.db.models import Sum
+>>>>>>> Stashed changes
 
 
 @login_required
@@ -92,6 +96,7 @@ def reservations(request):
     bookings = Booking.objects.filter(booking_status="Pending")
     return render(request, "reservations.html", { "bookings": bookings });
 
+<<<<<<< Updated upstream
 @login_required
 def edit_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
@@ -130,3 +135,31 @@ def add_device(request):
     else:
         form = NewDeviceForm()
     return render(request, 'add_device.html', {'form': form})
+=======
+class DeviceGroup(object):
+    def __init__(self, name, devices, total):
+        self.name = name
+        self.devices = devices
+        self.total = total
+
+    devices = {}
+    total = 0
+    name = ""
+
+def reports(request):
+    deviceTypes = Device.objects.all().values_list("device_type", flat=True).distinct()
+    deviceGroups = {}
+
+    for type in deviceTypes:
+        devices = Device.objects.filter(device_type=type)
+        total = 0
+        name = str(type)
+        
+        for device in devices:
+            total += device.device_count
+
+        deviceGroups[type] = DeviceGroup(name, devices, total)
+
+    print(deviceGroups)
+    return render(request, "reports.html", { "groups": deviceGroups })
+>>>>>>> Stashed changes
