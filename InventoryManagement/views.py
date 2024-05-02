@@ -220,6 +220,7 @@ def user_home(request):
     notifications = UserNotification.objects.order_by("-created")
     return render(request, 'user_home.html', { "notifications": notifications })
 
+'''
 @login_required
 def admin_home(request):
     print("*****")
@@ -234,17 +235,19 @@ def admin_home(request):
         "search": search or "",
     }
     return render(request, 'user_home.html', context)
+'''
 
 @login_required
 def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
+    notifications = UserNotification.objects.order_by("-created")
     context = {
         "devices": devices,
         "search": search or "",
         'users': users,
+        "notifications": notifications
     }
-
     return render(request, 'admin_home.html', context)
 
 

@@ -11,7 +11,12 @@
     <div class="dashboard-container">
         <div class="dashboard-column">
             <div class="dashboard-section" id="user-management">
+                
                 <h3>User Management</h3>
+                {% for n in notifications %}
+                    {{n}}
+                {% endfor %}
+
                 {% for user in users %}
                     <div class="user-row">
                         <p class="user-info">({{ user.email }}) ({{ user.role }})</p>
@@ -47,6 +52,7 @@
         <div class="dashboard-column">
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
+                
 
                 {% for notification in notifications %}
                     <div class="mt2">
