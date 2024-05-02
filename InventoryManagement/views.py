@@ -212,6 +212,14 @@ def reports(request):
 # Harsh's views
 @login_required
 def user_home(request):
+<<<<<<< HEAD
+    return render(request, 'user_home.html')
+
+@login_required
+def admin_home(request):
+    users = CustomUser.objects.all()
+    return render(request, 'admin_home.html', {'users':users})
+=======
     devices, search = _search(request)
     context = {
         "devices": devices,
@@ -230,6 +238,7 @@ def admin_home(request):
     }
 
     return render(request, 'admin_home.html', context)
+>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb
 
 
 logger = logging.getLogger(__name__)

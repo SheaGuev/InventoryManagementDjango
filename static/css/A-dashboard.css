@@ -69,6 +69,7 @@
 #user-management {
     height: 200px; /* Adjust as needed */
     overflow: auto;
+
 }
 #equipment-management {
     overflow: auto;
@@ -84,4 +85,7 @@
 
 #form-plugin-equipment select, #form-plugin-equipment type, #form-plugin-equipment input, #form-plugin-equipment button{
     padding: 5px;
+/*=======*/
+/*>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb*/
+/*>>>>>>> 73197cbca9206b5b68d4cf8a55d4f30d3a0d980f*/
 }
