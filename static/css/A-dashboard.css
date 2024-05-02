@@ -90,3 +90,12 @@
 /*>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb*/
 /*>>>>>>> 73197cbca9206b5b68d4cf8a55d4f30d3a0d980f*/
 }
+
+.report-link{
+    color: mediumaquamarine;
+    margin-top: 20px;
+    transition: color 0.3s;
+}
+.report-link:hover{
+    color: white;
+}
