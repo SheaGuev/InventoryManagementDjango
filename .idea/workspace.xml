@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/migrations/0002_device_return_day_alter_device_device_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/migrations/0002_device_return_day_alter_device_device_status_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/migrations/0003_alter_deviceconfig_device_cpu_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/migrations/0004_alter_device_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagement/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagement/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagementWestminster/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagementWestminster/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryManagementWestminster/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryManagementWestminster/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0002_alter_customuser_email.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0003_alter_customuser_role.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/migrations/0004_alter_customuser_username.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-    </list>
+    <list default="true" id="5564d358-13dd-4405-8434-e87546dcb7cd" name="Changes" comment="main template" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,12 +61,12 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SheaGuev/InventoryManagementDjango.git&quot;,
-    &quot;accountId&quot;: &quot;d9135f87-3044-494c-90af-a9da3a3fa16d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SheaGuev/InventoryManagementDjango.git",
+    "accountId": "d7e6b576-8df5-46a8-be2b-3fea2a2cc022"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -177,6 +153,7 @@
       <workItem from="1714096611832" duration="248000" />
       <workItem from="1714096877444" duration="59573000" />
       <workItem from="1714600432610" duration="10310000" />
+      <workItem from="1714614650515" duration="813000" />
     </task>
     <task id="LOCAL-00001" summary="main template">
       <option name="closed" value="true" />
@@ -232,24 +209,24 @@
     <MESSAGE value="main template" />
     <option name="LAST_COMMIT_MESSAGE" value="main template" />
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "equipment",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "equipment",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;equipment&quot;,
+      &quot;currentBranchFilter&quot;: true
     }
   ],
-  "lastFilter": {
-    "branch": "equipment",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;equipment&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
 </project>
