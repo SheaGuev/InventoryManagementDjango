@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "InventoryManagement",
     'django_bootstrap5',
-    "authentication"
+    "authentication.apps.AuthenticationConfig"
 
 
 ]
@@ -131,4 +131,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-AUTH_USER_MODEL = 'authentication.CustomUser'
+AUTH_USER_MODEL = 'InventoryManagement.CustomUser'
+
+LOGIN_URL = 'login'

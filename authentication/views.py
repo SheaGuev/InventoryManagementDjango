@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
+
+from InventoryManagement.models import CustomUser
 from .forms import NewUserForm, LoginForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 import logging
-from .models import CustomUser
+# from InventoryManagement.models import CustomUser
 from django.contrib.auth.decorators import login_required
+from InventoryManagement import urls
 
 @login_required
 def user_home(request):
@@ -47,9 +50,9 @@ def login_request(request):
                 login(request, user)
                 logger.info('User authenticated, redirecting to placeholder page.')
                 if user.role.role_name == 'admin':
-                    return redirect("admin_home")  # Redirect to the admin home page
+                    return redirect("home")  # Redirect to the admin home page
                 else:
-                    return redirect("user_home")  # Redirect to the user home page
+                    return redirect("home")  # Redirect to the user home page
             else:
                 logger.warning('Invalid email or password. Email: %s', email)
                 messages.error(request, "Invalid email or password.")

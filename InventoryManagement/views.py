@@ -5,12 +5,18 @@ from . models import Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import DeviceForm, NewDeviceForm
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+import logging
+from InventoryManagement.models import CustomUser
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def home(request):
     return render(request, 'index.html')
 
-# Create your views here.
+@login_required
 def equipment(request):
     devices, search = _search(request)
     context = {
@@ -19,6 +25,7 @@ def equipment(request):
     }
     return render(request, 'equipmentSearch.html', context)
 
+@login_required
 def search_view(request):
     devices, search = _search(request)
     context = {
@@ -27,10 +34,13 @@ def search_view(request):
     }
     return render(request, 'search.html', context)
 
+@login_required
 def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
     form = DeviceForm(instance=device)
     return render(request, 'device.html', {'device': device, 'form': form})
+
+@login_required
 def _search(request):
         search = request.GET.get('search')
         return_date_gt = request.GET.get('return_day>')
@@ -72,13 +82,17 @@ def _search(request):
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
 
+@login_required
 def equipmentRequests(request):
     bookings = Booking.objects.all()
     return render(request, "equipmentRequest.html", { "bookings": bookings })
 
+@login_required
 def reservations(request):
     bookings = Booking.objects.filter(booking_status="Pending")
     return render(request, "reservations.html", { "bookings": bookings });
+
+@login_required
 def edit_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     if request.method == 'POST':
@@ -106,7 +120,7 @@ def edit_device(request, device_serial):
 #     for config in configs[1:]:
 #         config.delete()
 
-
+@login_required
 def add_device(request):
     if request.method == 'POST':
         form = NewDeviceForm(request.POST)
