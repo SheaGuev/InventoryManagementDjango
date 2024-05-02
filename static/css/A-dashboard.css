@@ -70,3 +70,9 @@
     height: 200px; /* Adjust as needed */
     overflow: auto;
 }
+#equipment-management {
+    overflow: auto;
+}
+#product-panel{
+    overflow: auto;
+}

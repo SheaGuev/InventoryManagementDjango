@@ -3,6 +3,8 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/U-dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/equipment.css' %}">
+
 {% endblock %}
 
 
@@ -12,7 +14,7 @@
         <div class="dashboard-column">
             <div class="dashboard-section" id="equipment-management">
                 <h3>Equipment Management</h3>
-                <!-- Equipment Management content will go here -->
+                {% include 'equipmentSearch_plugin.html' %}
             </div>
         </div>
         <div class="dashboard-column">

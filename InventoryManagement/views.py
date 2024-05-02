@@ -7,7 +7,7 @@ from . models import Device, DeviceConfig
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import DeviceForm, NewDeviceForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 import logging
 from InventoryManagement.models import CustomUser
@@ -82,6 +82,7 @@ def _search(request):
             devices = devices.filter(device_type__icontains=device_type)
 
         paginator = Paginator(devices, 4)
+
         page = paginator.get_page(page_number)
 
         return page, search or ""
@@ -176,12 +177,24 @@ def reports(request):
 # Harsh's views
 @login_required
 def user_home(request):
-    return render(request, 'user_home.html')
+    devices, search = _search(request)
+    context = {
+        "devices": devices,
+        "search": search or "",
+    }
+    return render(request, 'user_home.html', context)
 
 @login_required
 def admin_home(request):
+    devices, search = _search(request)
     users = CustomUser.objects.all()
-    return render(request, 'admin_home.html', {'users':users})
+    context = {
+        "devices": devices,
+        "search": search or "",
+        'users': users,
+    }
+
+    return render(request, 'admin_home.html', context)
 
 
 logger = logging.getLogger(__name__)

@@ -1,0 +1,68 @@
+
+{#    <div class="structure-main">#}
+{#    <div class="electronics-panel">#}
+        <h2></h2>
+        <div class="search-panel" id="search-panel">
+
+            <form method="get"
+            {#            hx-get="{% url 'search' %}"#}
+            >
+                <input type="text" placeholder="Search..." name="search" value="{{ search }}">
+
+
+                <input type="number" placeholder="return>" name="return_day>" value="{{ return_day }}" min="1" max="48">
+                <input type="number" placeholder="return<" name="return_day<" value="{{ return_day }}" min="1" max="48">
+
+                <select name="device_satus" >
+                    <option value="">All</option>
+                    <option name="available" value="available">Available</option>
+                    <option name="unavailable" value="unavailable">Unavailable</option>
+                </select>
+
+                <select name="device_type" >
+                    <option value="">All</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="3-in-1 tablet">3-in-1 Tablet</option>
+                    <option value="Accessory">Accessories</option>
+                    <option value="monitor">Monitor</option>
+                    <option value="other">Other</option>
+                </select>
+
+                    <button class="savebtn" formaction="" name="">Save filters</button>
+{#                   <a href="{% url 'equipment' %}">#}
+                       <button type="reset" class="resetbtn" >Reset filters</button>
+{#                   </a>#}
+                     <a href="{% url 'add_device' %}">
+                        <button type="button" class="addbtn" >Add new device</button>
+                    </a>
+            </form>
+
+
+
+        </div>
+
+
+        <div class="product-panel" id="product-panel">
+
+         {%  include "search.html" %}
+
+        </div>
+
+{#    NOTE: ADD THE PAGINATION TO ITS OWN TEMPLATE#}
+
+
+       <div class="pagination">
+    {% if devices.has_previous %}
+        <a href="?page={{ devices.previous_page_number }}">&lt;</a>
+    {% endif %}
+
+    <span>{{ devices.number }}</span>
+
+    {% if devices.has_next %}
+        <a href="?page={{ devices.next_page_number }}">&gt;</a>
+    {% endif %}
+</div>
+{#    </div>#}
+{#    </div>#}
+
