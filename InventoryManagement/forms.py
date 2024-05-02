@@ -4,7 +4,7 @@ from .models import Device, DeviceConfig
 class DeviceForm(forms.ModelForm):
     class Meta:
         model = Device
-        fields = ['device_name', 'device_type', 'device_desc', 'device_status', 'location', 'config', 'return_day']
+        fields = ['device_name', 'device_type', 'device_desc', 'device_status', 'return_day']
 
         # def save(self, commit=True):
         #     device = super(DeviceForm, self).save(commit=False)
