@@ -25,7 +25,7 @@
                     {% if user.role.role_name == "admin" %}
                         <button type="button" class="edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                     {% else %}
-                        {% if booking and booking.booking_status == "reserved" %}
+                        {% if booking and booking.booking_status == "reserved" or booking.booking_status == "requested" %}
                                 <a href="{% url 'cancel_reservation' device.config.device_serial %}"><button type="button">Cancel</button></a>
                             {% else %}
                                 <a href="{% url 'reserve_device' device.config.device_serial %}"><button class="edit-btn" id="back-button">Reserve</button></a>

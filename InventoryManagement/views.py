@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.views.decorators.http import require_POST
 from django.contrib.auth import get_user
-
+from django.views.decorators.http import require_POST
 
 
 # @login_required
@@ -34,6 +34,20 @@ from django.contrib.auth import get_user
 #     # }
 #     return render(request, 'index.html')
 
+@require_POST
+@login_required
+def approve_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.booking_status = "reserved"
+    booking.save()
+    return redirect('reservations')
+
+@require_POST
+@login_required
+def reject_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect('reservations')
 @login_required
 def equipment(request):
     devices, search = _search(request)
@@ -138,12 +152,11 @@ def cancel_reservation(request, device_serial):
 
 @login_required
 def equipmentRequests(request):
-    bookings = Booking.objects.all()
+    bookings = Booking.objects.filter(user=request.user)
     return render(request, "equipmentRequest.html", { "bookings": bookings })
-
 @login_required
 def reservations(request):
-    bookings = Booking.objects.filter(booking_status="Pending")
+    bookings = Booking.objects.filter(booking_status="requested")
     return render(request, "reservations.html", { "bookings": bookings });
 
 @login_required
@@ -217,9 +230,11 @@ def reports(request):
 @login_required
 def user_home(request):
     devices, search = _search(request)
+    latest_booking = Booking.objects.filter(user=request.user).order_by('-booking_req_date').first()
     context = {
         "devices": devices,
         "search": search or "",
+        "latest_booking": latest_booking,
     }
     return render(request, 'user_home.html', context)
 
@@ -227,10 +242,13 @@ def user_home(request):
 def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
+    bookings = Booking.objects.filter(booking_status="requested")
+
     context = {
         "devices": devices,
         "search": search or "",
         'users': users,
+        'bookings': bookings,
     }
 
     return render(request, 'admin_home.html', context)

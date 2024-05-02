@@ -9,6 +9,7 @@
     box-sizing: border-box; /* Include padding and border in element's total width and height */
     width: 100%; /* Set the width */
     height: 200px; /* Set the height */
+    overflow: auto; /* Add scrollbars if content overflows */
 }
 
 .dashboard-section h3 {
