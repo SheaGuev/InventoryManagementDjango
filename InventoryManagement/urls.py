@@ -14,5 +14,14 @@ urlpatterns = [
     path('add_device/', views.add_device, name='add_device'),
 
 
-    path("reports/", views.reports, name="reports")
+    path("reports/", views.reports, name="reports"),
+
+
+    # Harsh's URLs
+    path('admin_home/', views.admin_home, name='admin_home'),
+    path('user_home/', views.user_home, name='user_home'),
+    path('logout/', views.custom_logout, name='logout'),
+    path('make_admin/<int:user_id>/', views.make_admin, name='make_admin'),
+    path('delete_user/<int:user_id>/', views.delete_user, name='delete_user'),
+    path('make_user/<int:user_id>/', views.make_user, name='make_user'),
 ]
