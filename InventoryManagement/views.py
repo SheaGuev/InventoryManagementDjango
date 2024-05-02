@@ -215,8 +215,6 @@ def logoutUser(request):
 # Harsh's views
 @login_required
 def user_home(request):
-    print(notifications)
-
     try: 
         notifications = UserNotification.objects.order_by("-created")
     except:
