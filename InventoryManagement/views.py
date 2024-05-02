@@ -169,7 +169,9 @@ def reservations(request):
 def edit_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     if request.method == 'POST':
+
         form = DeviceForm(request.POST, instance=device)
+        # print(form)
         if form.is_valid():
             device = form.save()
             return redirect('device_view', device_serial=device.config.device_serial)
