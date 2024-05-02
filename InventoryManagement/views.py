@@ -118,16 +118,22 @@ def reserve_device(request, device_serial):
         booking.booking_req_date = date.today()
         booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
         booking.save()
+        booking.device.update_device_status()
         return redirect('device_view', device_serial=device.config.device_serial)
     else:
         messages.error(request, 'This device is not available for reservation.')  # Display an error message
         return redirect('device_view', device_serial=device.config.device_serial)
+    # Update device status
 
 @login_required
 def cancel_reservation(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     booking = get_object_or_404(Booking, device=device, user=request.user)
+
     booking.delete()
+    # Update device status
+    # Update device status
+    booking.device.update_device_status()
     return redirect('device_view', device_serial=device.config.device_serial)
 
 
@@ -166,8 +172,9 @@ def edit_device(request, device_serial):
         form = DeviceForm(request.POST, instance=device)
         if form.is_valid():
             device = form.save()
-            return redirect('view_device', device_serial=device.config.device_serial)
+            return redirect('device_view', device_serial=device.config.device_serial)
     else:
+        print(device.config.device_serial)
         form = DeviceForm(instance=device)
     return render(request, 'device.html', {'form': form, 'device': device})
 # DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
