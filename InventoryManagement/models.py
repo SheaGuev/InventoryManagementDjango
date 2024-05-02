@@ -26,7 +26,7 @@ class Device(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     config = models.ForeignKey('DeviceConfig', on_delete=models.CASCADE, null=False, blank=False)
     return_day = models.IntegerField(default=0)
-    device_count = models.IntegerField(default=0)
+    # device_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.device_name

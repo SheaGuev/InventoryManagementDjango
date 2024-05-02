@@ -131,6 +131,7 @@ def add_device(request):
     else:
         form = NewDeviceForm()
     return render(request, 'add_device.html', {'form': form})
+
 class DeviceGroup(object):
     def __init__(self, name, devices, total):
         self.name = name
@@ -149,9 +150,9 @@ def reports(request):
         devices = Device.objects.filter(device_type=type)
         total = 0
         name = str(type)
-        
+
         for device in devices:
-            total += device.device_count #causing error?
+            total += 1
 
         deviceGroups[type] = DeviceGroup(name, devices, total)
 
