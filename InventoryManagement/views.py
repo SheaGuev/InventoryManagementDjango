@@ -98,12 +98,16 @@ from datetime import timedelta
 @login_required
 def reserve_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
-    booking = Booking(device=device, user=request.user)
-    booking.booking_status = "reserved"
-    booking.booking_req_date = date.today()
-    booking.device_exp_ret_date = date.today() + timedelta(days=7)  # Set expected return date to a week from today
-    booking.save()
-    return redirect('equipment')
+    if device.device_status:  # Check if the device status is true
+        booking = Booking(device=device, user=request.user)
+        booking.booking_status = "requested"
+        booking.booking_req_date = date.today()
+        booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
+        booking.save()
+        return redirect('device_view', device_serial=device.config.device_serial)
+    else:
+        messages.error(request, 'This device is not available for reservation.')  # Display an error message
+        return redirect('device_view', device_serial=device.config.device_serial)
 
 @login_required
 def cancel_reservation(request, device_serial):
