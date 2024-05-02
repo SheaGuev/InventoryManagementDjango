@@ -69,4 +69,13 @@
 #user-management {
     height: 200px; /* Adjust as needed */
     overflow: auto;
+<<<<<<< HEAD
+=======
+}
+#equipment-management {
+    overflow: auto;
+}
+#product-panel{
+    overflow: auto;
+>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb
 }
