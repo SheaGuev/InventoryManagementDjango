@@ -4,7 +4,7 @@ from django.http import HttpRequest, request
 from django.shortcuts import render, HttpResponse
 
 from authentication.forms import NewUserForm, LoginForm
-from .models import Booking, Device, DeviceConfig, Role
+from .models import Booking, Device, DeviceConfig, Role, UserNotification
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect
 from . models import Device, DeviceConfig
 from django.db.models import Q
@@ -207,17 +207,22 @@ def reports(request):
     print(deviceGroups)
     return render(request, "reports.html", { "groups": deviceGroups })
 
+def logoutUser(request):
+    logout(request)
+    
 
 
 # Harsh's views
 @login_required
 def user_home(request):
-    return render(request, 'user_home.html')
+    notifications = UserNotification.objects.order_by("-created")
+    return render(request, 'user_home.html', { "notifications": notifications })
 
 @login_required
 def admin_home(request):
     users = CustomUser.objects.all()
-    return render(request, 'admin_home.html', {'users':users})
+    notifications = UserNotification.objects.order_by("-created")
+    return render(request, 'admin_home.html', {'users':users, "nofications": notifications})
     devices, search = _search(request)
     context = {
         "devices": devices,
@@ -248,6 +253,7 @@ def register_request(request):
             try:
                 user = form.save()
                 login(request, user)
+                
                 logger.info('User registered successfully. Email: %s', user.email)
                 messages.success(request, "Registration successful.")
                 return redirect("login")  # Redirect to the login page

@@ -3,11 +3,8 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/U-dashboard.css' %}">
-<<<<<<< HEAD
-=======
-        <link rel="stylesheet" href="{% static 'css/equipment.css' %}">
-
->>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb
+    <link rel="stylesheet" href="{% static 'css/equipment.css' %}">
+    <link rel="stylesheet" href={% static "/css/basscss.css" %}>
 {% endblock %}
 
 
@@ -17,17 +14,18 @@
         <div class="dashboard-column">
             <div class="dashboard-section" id="equipment-management">
                 <h3>Equipment Management</h3>
-<<<<<<< HEAD
-                <!-- Equipment Management content will go here -->
-=======
                 {% include 'equipmentSearch_plugin.html' %}
->>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb
             </div>
         </div>
         <div class="dashboard-column">
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
-                <!-- Alerts content will go here -->
+
+                {% for notification in notifications %}
+                    <div class="mt2">
+                        {{ notification.message }}
+                    </div>
+                {% endfor %}
             </div>
             <div class="dashboard-section" id="reservations">
                 <h3>Reservations</h3>
