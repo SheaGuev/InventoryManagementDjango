@@ -36,6 +36,8 @@
             box-sizing: border-box;
             margin: auto;
             border-bottom: 1px solid rgb(161, 204, 165); /*light green*/
+
+            height: 80px;
         }
         .right-content {
             display: flex;
@@ -90,6 +92,11 @@
         .sidebar a:hover {
             background-color: #34495e;
         }
+
+        .sidebar a.sel {
+            background-color: #366b50;
+            //background-color: #111d13;
+        }
         .logout {
             position: absolute;
             bottom: 0;
@@ -97,6 +104,7 @@
             text-align: center;
             border-top: 1px solid #fff;
         }
+
         .dropdown-container {
             margin-left: 250px;
             padding-top: 3cm;
@@ -217,4 +225,8 @@
     .go-back-btn:hover {
         background-color: #f44336;
         cursor: pointer;
+    }
+
+    .bx {
+        font-size: 20px;
     }

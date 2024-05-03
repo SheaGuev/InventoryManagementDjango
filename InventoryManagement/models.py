@@ -196,8 +196,10 @@ class Booking(models.Model):
 
 
 
-    def reserve_device(self, deviceId, user, **extra_fields):
-        booking = self.objects.model(deviceId, user, **extra_fields)
+    def reserve_device(deviceId, user):
+        booking = Booking()
+        booking.deviceId = deviceId
+        booking.user = user
         booking.booking_status = "reserved"
         booking.booking_req_date = date.today()
 

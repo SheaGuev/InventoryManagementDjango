@@ -21,7 +21,10 @@
 
 .dashboard-container {
     width: 75%;
-    margin: 8% 0 0 22.5%;
+    height: 90%;
+    // margin: 8% 0 0 22.5%;
+    margin-left: 22.5%;
+    margin-top: 100px;
     color: #fff; /* Text color for the dashboard */
     display: flex; /* Make this a flex container */
     justify-content: space-between; /* Add space between the columns */
@@ -31,6 +34,10 @@
 .dashboard-column {
     display: flex;
     flex-direction: column;
+}
+
+#equipment-management {
+    height: auto;
 }
 
 .dashboard-column:first-child {
