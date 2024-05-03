@@ -296,7 +296,6 @@ def user_home(request):
 
     return render(request, 'user_home.html', { "notifications": notifications })
 
-
 @login_required
 def admin_home(request):
     devices, search = _search(request)
