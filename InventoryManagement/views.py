@@ -19,21 +19,10 @@ from django.db.models import Sum
 from django.views.decorators.http import require_POST
 from django.contrib.auth import get_user
 from django.views.decorators.http import require_POST
+from datetime import timedelta
 
 
-# @login_required
-# def admin_home(request):
-#     users = CustomUser.objects.all()
-#     return render(request, 'admin_home.html', {'users': users})
-
-
-# @login_required
-# def home(request):
-#     # context = {
-#     #     "user": CustomUser,
-#     # }
-#     return render(request, 'index.html')
-
+####SHEAS CODE FOR BOOKINGS
 @require_POST
 @login_required
 def approve_booking(request, booking_id):
@@ -58,6 +47,41 @@ def reject_booking(request, booking_id):
     for admin in admin_users:
         UserNotification.createNew(admin, f"Booking {booking_id} has been rejected.")
     return redirect('reservations')
+
+
+##Shea's code for booking a device
+@login_required
+def reserve_device(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    if device.device_status:  # Check if the device status is true
+        booking = Booking(device=device, user=request.user)
+        booking.booking_status = "requested"
+        booking.booking_req_date = date.today()
+        booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
+        booking.save()
+        booking.device.update_device_status()
+        UserNotification.createNew(booking.user, "Your booking request has been submitted.")
+        admin_users = CustomUser.objects.filter(role__role_name='admin')
+        for admin in admin_users:
+            UserNotification.createNew(admin, f"New booking request {booking.id} has been submitted.")
+        return redirect('device_view', device_serial=device.config.device_serial)
+    else:
+        messages.error(request, 'This device is not available for reservation.')  # Display an error message
+        return redirect('device_view', device_serial=device.config.device_serial)
+    # Update device status
+#Shea's code for cancelling a reservation
+@login_required
+def cancel_reservation(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    booking = get_object_or_404(Booking, device=device, user=request.user)
+
+    booking.delete()
+    # Update device status
+    # Update device status
+    booking.device.update_device_status()
+    return redirect('device_view', device_serial=device.config.device_serial)
+
+#SHEA'S CODE FOR EQUIPMENT PAGES
 @login_required
 def equipment(request):
     devices, search = _search(request)
@@ -68,7 +92,7 @@ def equipment(request):
         "user": user,
     }
     return render(request, 'equipmentSearch.html', context)
-
+#Shea's code for search functionality
 @login_required
 def search_view(request):
     devices, search = _search(request)
@@ -78,7 +102,7 @@ def search_view(request):
         'current_path': request.path,
     }
     return render(request, 'search.html', context)
-
+##DEVICE PAGE BELOW Shea
 @login_required
 def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
@@ -86,6 +110,7 @@ def device_view(request, device_serial):
     booking = Booking.objects.filter(device=device, user=request.user).first()
     user=request.user
     return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking, "user": user})
+#Shea's code for search functionality
 @login_required
 def _search(request):
         search = request.GET.get('search')
@@ -123,39 +148,56 @@ def _search(request):
 
         return page, search or ""
 
-from datetime import timedelta
-
+##Shea's code for device edit
 @login_required
-def reserve_device(request, device_serial):
+def edit_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
-    if device.device_status:  # Check if the device status is true
-        booking = Booking(device=device, user=request.user)
-        booking.booking_status = "requested"
-        booking.booking_req_date = date.today()
-        booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
-        booking.save()
-        booking.device.update_device_status()
-        UserNotification.createNew(booking.user, "Your booking request has been submitted.")
-        admin_users = CustomUser.objects.filter(role__role_name='admin')
-        for admin in admin_users:
-            UserNotification.createNew(admin, f"New booking request {booking.id} has been submitted.")
-        return redirect('device_view', device_serial=device.config.device_serial)
+    if request.method == 'POST':
+        form = DeviceForm(request.POST, instance=device)
+        if form.is_valid():
+            device = form.save()
+            return redirect('device_view', device_serial=device.config.device_serial)
+        else:
+            print(form.errors)  # Print form errors
     else:
-        messages.error(request, 'This device is not available for reservation.')  # Display an error message
-        return redirect('device_view', device_serial=device.config.device_serial)
-    # Update device status
-
+        form = DeviceForm(instance=device)
+    return render(request, 'device.html', {'form': form, 'device': device})
+#Shea's code for deleting a device
 @login_required
-def cancel_reservation(request, device_serial):
+def delete_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
-    booking = get_object_or_404(Booking, device=device, user=request.user)
+    device.delete()
+    return redirect('equipment')  # Redirect to the equipment page
 
+#Shea's code for deleting a booking
+@login_required
+@require_POST
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    device = booking.device
     booking.delete()
-    # Update device status
-    # Update device status
-    booking.device.update_device_status()
-    return redirect('device_view', device_serial=device.config.device_serial)
+    device.device_status = True  # Set the device status to available
+    device.save()
+    return redirect('reservations')  # Redirect to the reservations page
 
+#SHEA'S and Harsh's code for deleting a notification
+@require_POST
+@login_required
+def delete_notification(request, notification_id):
+    notification = get_object_or_404(UserNotification, id=notification_id)
+    notification.delete()
+    return redirect('notifications')  # Redirect to the notifications page
+#Shea's device view
+@login_required
+def add_device(request):
+    if request.method == 'POST':
+        form = NewDeviceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('equipment')
+    else:
+        form = NewDeviceForm()
+    return render(request, 'add_device.html', {'form': form})
 
 # @login_required
 # def reserve_device(self, user, device_serial):
@@ -175,12 +217,13 @@ def cancel_reservation(request, device_serial):
     #
     # devices = Device.objects.filter(device_name__contains=search_text)
     # return render(request, 'ajax_search.html', {'devices': devices})
-
+#MICAH'S CODE FOR EQUIPMENT REQUEST PAGES
 @login_required
 def equipmentRequests(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, "equipmentRequest.html", { "bookings": bookings })
 
+#MICAH'S CODE FOR EQUIPMENT REQUEST PAGES
 @login_required
 def reservations(request):
     bookings = Booking.objects.filter(booking_status="requested")
@@ -188,73 +231,13 @@ def reservations(request):
     all_bookings = all_bookings.exclude(booking_status="requested")
     return render(request, "reservations.html", { "bookings": bookings, "all_bookings": all_bookings });
 
-@login_required
-def edit_device(request, device_serial):
-    device = get_object_or_404(Device, config__device_serial=device_serial)
-    if request.method == 'POST':
-        form = DeviceForm(request.POST, instance=device)
-        if form.is_valid():
-            device = form.save()
-            return redirect('device_view', device_serial=device.config.device_serial)
-        else:
-            print(form.errors)  # Print form errors
-    else:
-        form = DeviceForm(instance=device)
-    return render(request, 'device.html', {'form': form, 'device': device})
 
-@login_required
-def delete_device(request, device_serial):
-    device = get_object_or_404(Device, config__device_serial=device_serial)
-    device.delete()
-    return redirect('equipment')  # Redirect to the equipment page
-@login_required
-@require_POST
-def delete_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    device = booking.device
-    booking.delete()
-    device.device_status = True  # Set the device status to available
-    device.save()
-    return redirect('reservations')  # Redirect to the reservations page
-
+#MICAH'S CODE FOR NOTIFICATIONS
 @login_required
 def notifications(request):
     notifications = UserNotification.objects.filter(user=request.user).order_by('-created')
     return render(request, 'notifications.html', {'notifications': notifications})
-
-@require_POST
-@login_required
-def delete_notification(request, notification_id):
-    notification = get_object_or_404(UserNotification, id=notification_id)
-    notification.delete()
-    return redirect('notifications')  # Redirect to the notifications page
-# DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
-# from django.db.models import Count
-# from InventoryManagement.models import DeviceConfig
-#
-# # Find duplicate device_serial values
-# duplicates = (DeviceConfig.objects.values('device_serial')
-#               .annotate(device_serial_count=Count('device_serial'))
-#               .filter(device_serial_count__gt=1))
-#
-# for duplicate in duplicates:
-#     # Get all DeviceConfig objects with this device_serial
-#     configs = DeviceConfig.objects.filter(device_serial=duplicate['device_serial'])
-#
-#     for config in configs[1:]:
-#         config.delete()
-
-@login_required
-def add_device(request):
-    if request.method == 'POST':
-        form = NewDeviceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('equipment')
-    else:
-        form = NewDeviceForm()
-    return render(request, 'add_device.html', {'form': form})
-
+#Micah's device group for reports page
 class DeviceGroup(object):
     def __init__(self, name, devices, total):
         self.name = name
@@ -264,7 +247,7 @@ class DeviceGroup(object):
     devices = {}
     total = 0
     name = ""
-
+#Micah's, Jamal's code for reports page
 def reports(request):
     deviceTypes = Device.objects.all().values_list("device_type", flat=True).distinct()
     deviceGroups = {}
@@ -282,12 +265,13 @@ def reports(request):
     print(deviceGroups)
     return render(request, "reports.html", { "groups": deviceGroups })
 
+#logout micah
 def logoutUser(request):
     logout(request)
 
 
 
-# Harsh's views
+# Harsh's views for registration, aithenticaion and login connected parts can be found in authenticaion app
 @login_required
 def user_home(request):
     users = CustomUser.objects.all()

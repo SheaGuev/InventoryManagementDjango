@@ -1,3 +1,6 @@
+{#AUTHOR MICAH, SHEA, HARSH#}
+
+
 {% extends "base.html" %}
 {% load static %}
 {% block styles %}
@@ -21,7 +24,7 @@
       
       <div class="flex">
         <h5 class="p0 mt0">
-          Pickup: {{ booking.device_act_ret_date }}
+          Pickup: {% if booking.booking_status == "reserved" %} Available {% else %} Unavailable {% endif %}
         </h5>
 
         <h5 class="ml-auto p0 mt0">
