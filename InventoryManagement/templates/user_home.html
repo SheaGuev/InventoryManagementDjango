@@ -21,11 +21,18 @@
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
 
-                {% for notification in notifications %}
-                    <div class="mt2">
-                        {{ notification.message }}
-                    </div>
-                {% endfor %}
+                {% with notifications|first as latest_notification %}
+                    {% if latest_notification %}
+                        <div class="mt2">
+                            {{ latest_notification.message }}
+                        </div>
+                    {% else %}
+                        <div class="mt2">
+                            No new notifications.
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
             </div>
             <div class="dashboard-section" id="reservations">
                 <h3>Reservations</h3>
@@ -39,7 +46,8 @@
 
                           <div class="flex">
                             <h5 class="p0 mt0">
-                              Pickup: {{ latest_booking.device_act_ret_date }}
+{#                              Pickup: {{ latest_booking.device_act_ret_date }}#}
+                                Pickup: {% if latest_booking.booking_status == "reserved" %} Available {% else %} Unavailable {% endif %}
                             </h5>
 
                             <h5 class="ml-auto p0 mt0">

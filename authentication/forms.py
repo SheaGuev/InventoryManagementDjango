@@ -36,11 +36,12 @@ class NewUserForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ("email", "first_name", "last_name", "phone", "password1", "password2")
+        fields = ("email", "first_name", "last_name", "phone", "password2")
 
     def save(self, commit=True):
         user = super(NewUserForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
+        user.username = self.cleaned_data['email']  # Set username to email
         user.phone = self.cleaned_data['phone']
         if commit:
             user.save()

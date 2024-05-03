@@ -166,7 +166,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
 class UserNotification(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     message =  models.CharField(max_length=65535)
@@ -178,10 +178,10 @@ class UserNotification(models.Model):
         notification.message = message
 
         notification.save()
-    
+
     def __str__(self):
         return f"{self.message}"
-        
+
 
 class Booking(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)

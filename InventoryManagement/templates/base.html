@@ -51,7 +51,7 @@
             <i class='bx bxs-home'></i> 
             Home</a>
         {% endif %}
-        <a href="{% url 'user_home' %}" class="{% if request.path == '/notifications/' %}sel{% endif %}">
+        <a href="{% url 'notifications' %}" class="{% if request.path == '/notifications/' %}sel{% endif %}">
             <i class='bx bx-bell' ></i>
             Notifications</a>
         <a href="{% url 'equipment' %}" class="{% if request.path == '/equipment/' or '/device/' in request.path %}sel{% endif %}"">

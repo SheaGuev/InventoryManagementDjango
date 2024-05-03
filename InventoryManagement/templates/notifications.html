@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/equipment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notifs.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="structure-main">
+    <div class="electronics-panel">
+  <h2>Notifications</h2>
+  {% for notification in notifications %}
+    <div class="notification">
+        <p>{{ notification.message }}</p>
+        <p><small>Received: {{ notification.created }}</small></p>
+        <form method="post" action="{% url 'delete_notification' notification.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  {% empty %}
+    <p>No notifications.</p>
+  {% endfor %}
+    </div>
+    </div>
+{% endblock %}

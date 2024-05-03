@@ -46,14 +46,17 @@
             <div class="dashboard-section" id="alerts">
                 <h3>Alerts</h3>
                 
-                {% for notification in notifications %}
-                    <div class="mt2 flex">
-                        <span>
-                            {{ notification.created }}
-                        </span>
-                        {{ notification.message }}
-                    </div>
-                {% endfor %}
+                    {% with notifications|first as latest_notification %}
+                        {% if latest_notification %}
+                            <div class="mt2">
+                                {{ latest_notification.message }}
+                            </div>
+                        {% else %}
+                            <div class="mt2">
+                                No new notifications.
+                            </div>
+                        {% endif %}
+                    {% endwith %}
             </div>
         
             <div class="dashboard-section" id="reservation-requests">
