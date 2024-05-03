@@ -294,13 +294,15 @@ def user_home(request):
     except:
         notifications = list()
 
+    user = request.user
     devices, search = _search(request)
     latest_booking = Booking.objects.filter(user=request.user).order_by('-booking_req_date').first()
     context = {
         "devices": devices,
         "search": search or "",
         "latest_booking": latest_booking,
-        "notifications": notifications
+        "notifications": notifications,
+        "user": user,
     }
     return render(request, 'user_home.html', context)
 
@@ -309,6 +311,7 @@ def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
     bookings = Booking.objects.filter(booking_status="requested")
+    user = request.user
 
     try:
         notifications = UserNotification.objects.filter(user=request.user).order_by("-created")
@@ -320,7 +323,9 @@ def admin_home(request):
         "search": search or "",
         'users': users,
         'bookings': bookings,
-        "notifications": notifications
+        "notifications": notifications,
+        "user": user
+
     }
 
     #print(context)
