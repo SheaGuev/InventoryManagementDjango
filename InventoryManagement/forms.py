@@ -4,7 +4,7 @@ from .models import Device, DeviceConfig
 class DeviceForm(forms.ModelForm):
     class Meta:
         model = Device
-        fields = ['device_name', 'device_type', 'device_desc', 'device_status', 'location', 'config', 'return_day']
+        fields = ['device_name', 'device_type', 'device_desc', 'device_status', 'return_day']
 
 class NewDeviceForm(forms.ModelForm):
     device_serial = forms.CharField(max_length=255)
