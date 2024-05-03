@@ -429,3 +429,4 @@ def delete_user(request, user_id):
     user.delete()
     return redirect('admin_home')
 
+'''
