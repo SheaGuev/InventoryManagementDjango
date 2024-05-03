@@ -20,12 +20,15 @@
 
 .dashboard-container {
     width: 75%;
+    height: 90%;
     margin: 8% 0 0 22.5%;
     color: #fff; /* Text color for the dashboard */
     display: flex; /* Make this a flex container */
     justify-content: space-between; /* Add space between the columns */
     gap: 20px;
 }
+
+
 
 .dashboard-column {
     display: flex;

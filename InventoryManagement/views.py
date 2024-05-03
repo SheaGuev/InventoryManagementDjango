@@ -279,6 +279,13 @@ def admin_home(request):
 def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
+
+    print("********####")
+    print(request.user)
+    print(request.user.role.role_name)
+
+    if request.user.role.role_name != "admin":
+        return redirect("user_home")
     
     try: 
         notifications = list(UserNotification.objects.order_by("-created"))
