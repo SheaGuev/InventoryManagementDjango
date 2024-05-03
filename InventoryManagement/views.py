@@ -296,27 +296,6 @@ def user_home(request):
 
     return render(request, 'user_home.html', { "notifications": notifications })
 
-'''
-@login_required
-def admin_home(request):
-    print("*****")
-    users = CustomUser.objects.all()
-    notifications = UserNotification.objects.order_by("-created")
-
-    print(notifications)
-    return render(request, 'admin_home.html', {'users':users, "notifications": notifications})
->>>>>>>>> Temporary merge branch 2
-    user = request.user
-    devices, search = _search(request)
-    latest_booking = Booking.objects.filter(user=request.user).order_by('-booking_req_date').first()
-    context = {
-        "devices": devices,
-        "search": search or "",
-        "latest_booking": latest_booking,
-        "notifications": notifications,
-        "user": user,
-    }
-    return render(request, 'user_home.html', context)
 
 @login_required
 def admin_home(request):
@@ -342,8 +321,6 @@ def admin_home(request):
 
     #print(context)
     return render(request, 'admin_home.html', context)
-
-
 
 logger = logging.getLogger(__name__)
 
@@ -433,5 +410,3 @@ def delete_user(request, user_id):
     user = CustomUser.objects.get(id=user_id)
     user.delete()
     return redirect('admin_home')
-
-'''
