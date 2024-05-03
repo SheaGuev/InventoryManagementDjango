@@ -84,7 +84,8 @@ def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
     form = DeviceForm(instance=device)
     booking = Booking.objects.filter(device=device, user=request.user).first()
-    return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking})
+    user=request.user
+    return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking, "user": user})
 @login_required
 def _search(request):
         search = request.GET.get('search')
