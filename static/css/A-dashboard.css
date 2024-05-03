@@ -21,7 +21,10 @@
 
 .dashboard-container {
     width: 75%;
-    margin: 8% 0 0 22.5%;
+    height: 90%;
+    // margin: 8% 0 0 22.5%;
+    margin-left: 22.5%;
+    margin-top: 100px;
     color: #fff; /* Text color for the dashboard */
     display: flex; /* Make this a flex container */
     justify-content: space-between; /* Add space between the columns */
@@ -33,6 +36,10 @@
     flex-direction: column;
 }
 
+#equipment-management {
+    height: auto;
+}
+
 .dashboard-column:first-child {
     flex: 2; /* This makes the first column take up 2/3 of the space */
 }
@@ -42,7 +49,7 @@
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(2) {
-    height: 400px; /* Adjust this value to your needs */
+    height: 380px; /* Adjust this value to your needs */
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(3) {
@@ -68,7 +75,7 @@
 }
 
 #user-management {
-    height: 200px; /* Adjust as needed */
+    height: 300px;
     overflow: auto;
 
 }
