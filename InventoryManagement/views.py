@@ -84,7 +84,7 @@ def device_view(request, device_serial):
     device = Device.objects.get(config__device_serial=device_serial)
     form = DeviceForm(instance=device)
     booking = Booking.objects.filter(device=device, user=request.user).first()
-    return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking})
+    return render(request, 'device.html', {'device': device, 'form': form, 'booking': booking, 'user': request.user})
 @login_required
 def _search(request):
         search = request.GET.get('search')
@@ -289,12 +289,27 @@ def logoutUser(request):
 # Harsh's views
 @login_required
 def user_home(request):
+    devices, search = _search(request)
+    users = CustomUser.objects.all()
+    bookings = Booking.objects.filter(booking_status="requested")
+    user = request.user
+
     try:
         notifications = UserNotification.objects.filter(user=request.user).order_by("-created")
     except:
         notifications = list()
 
-    return render(request, 'user_home.html', { "notifications": notifications })
+    context = {
+        "devices": devices,
+        "search": search or "",
+        'users': users,
+        'bookings': bookings,
+        "notifications": notifications,
+        "user": user
+
+    }
+
+    return render(request, 'user_home.html', context)
 
 
 @login_required
