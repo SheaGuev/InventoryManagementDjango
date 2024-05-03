@@ -42,7 +42,7 @@
         {% elif user.role.role_name == "user" %}
         <a href="{% url 'user_home' %}">Home</a>
         {% endif %}
-        <a href="{% url 'user_home' %}">Notifications</a>
+        <a href="{% url 'notifications' %}">Notifications</a>
         <a href="{% url 'equipment' %}">Equipment</a>
     {#        ADD A LINK TO THE REPORTS PAGE ONLY IF USER ROLE IS ADMIN!!#}
         {% if user.role.role_name == 'admin' %}

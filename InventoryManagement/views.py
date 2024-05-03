@@ -164,7 +164,9 @@ def equipmentRequests(request):
 @login_required
 def reservations(request):
     bookings = Booking.objects.filter(booking_status="requested")
-    return render(request, "reservations.html", { "bookings": bookings });
+    all_bookings = Booking.objects.all()
+    all_bookings = all_bookings.exclude(booking_status="requested")
+    return render(request, "reservations.html", { "bookings": bookings, "all_bookings": all_bookings });
 
 @login_required
 def edit_device(request, device_serial):
@@ -185,9 +187,24 @@ def delete_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     device.delete()
     return redirect('equipment')  # Redirect to the equipment page
+@login_required
+@require_POST
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect('reservations')  # Redirect to the reservations page
 
+@login_required
+def notifications(request):
+    notifications = UserNotification.objects.filter(user=request.user).order_by('-created')
+    return render(request, 'notifications.html', {'notifications': notifications})
 
-
+@require_POST
+@login_required
+def delete_notification(request, notification_id):
+    notification = get_object_or_404(UserNotification, id=notification_id)
+    notification.delete()
+    return redirect('notifications')  # Redirect to the notifications page
 # DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
 # from django.db.models import Count
 # from InventoryManagement.models import DeviceConfig

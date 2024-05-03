@@ -49,6 +49,49 @@
 
       </div>
     </div>
-    {% endfor %}   
-  </div>
+    {% endfor %}
+</div>
+{#  ADDING ALL RESERVATIONS HERE#}
+    <div class="rsv-root">
+    <h3 class="mx-auto mb-2 simple-hd">
+      All Reservations
+    </h3>
+
+  {% for booking in all_bookings %}
+      <div class="rsv-block">
+          <div class="rsv-inner flex">
+            <h5>
+              Role: {{ booking.user.role }}
+            </h5>
+
+            <h5 class="ml-auto">
+              ID: w{{ booking.user.id }}
+            </h5>
+
+            <h5 class="ml-auto">
+              Registry Date: {{ booking.booking_req_date }}
+            </h5>
+          </div>
+
+          <div class="rsv-body flex">
+            <h5>
+              User: R#{{ booking.user.user.id }}
+            </h5>
+
+            <h5 class="ml-auto">
+              Device: {{ booking.device.device_name }}
+            </h5>
+
+                 <div class="my-auto ml-auto">
+              <form method="post" action="{% url 'delete_booking' booking.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Remove</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+  {% endfor %}
+    </div>d
+
 {% endblock %}

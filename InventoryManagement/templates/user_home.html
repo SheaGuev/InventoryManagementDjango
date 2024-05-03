@@ -39,7 +39,8 @@
 
                           <div class="flex">
                             <h5 class="p0 mt0">
-                              Pickup: {{ latest_booking.device_act_ret_date }}
+{#                              Pickup: {{ latest_booking.device_act_ret_date }}#}
+                                Pickup: {% if latest_booking.booking_status == "reserved" %} Available {% else %} Unavailable {% endif %}
                             </h5>
 
                             <h5 class="ml-auto p0 mt0">
