@@ -55,3 +55,8 @@
   font-size: 18px;
   text-align: center;
 }
+
+.my-auto{
+  display: flex;
+  flex-direction: row;
+}

@@ -30,6 +30,14 @@ class Device(models.Model):
     return_day = models.IntegerField(default=0)
     # device_count = models.IntegerField(default=0)
 
+    def update_device_status(self):
+        bookings = Booking.objects.filter(device=self).exclude(booking_status="cancelled")
+        if bookings:
+            self.device_status = False
+        else:
+            self.device_status = True
+        self.save()
+
     def __str__(self):
         return self.device_name
 
@@ -158,7 +166,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
 class UserNotification(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     message =  models.CharField(max_length=65535)
@@ -170,10 +178,10 @@ class UserNotification(models.Model):
         notification.message = message
 
         notification.save()
-    
+
     def __str__(self):
         return f"{self.message}"
-        
+
 
 class Booking(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
@@ -186,10 +194,10 @@ class Booking(models.Model):
     device_exp_ret_date = models.DateField()
     device_act_ret_date = models.DateField(null=True, blank=True)
 
-    def reserve_device(deviceId, user):
-        booking = Booking()
-        booking.deviceId = deviceId
-        booking.user = user
+
+
+    def reserve_device(self, deviceId, user, **extra_fields):
+        booking = self.objects.model(deviceId, user, **extra_fields)
         booking.booking_status = "reserved"
         booking.booking_req_date = date.today()
 

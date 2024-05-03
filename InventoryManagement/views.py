@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.views.decorators.http import require_POST
 from django.contrib.auth import get_user
-
+from django.views.decorators.http import require_POST
 
 
 # @login_required
@@ -34,6 +34,20 @@ from django.contrib.auth import get_user
 #     # }
 #     return render(request, 'index.html')
 
+@require_POST
+@login_required
+def approve_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.booking_status = "reserved"
+    booking.save()
+    return redirect('reservations')
+
+@require_POST
+@login_required
+def reject_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect('reservations')
 @login_required
 def equipment(request):
     devices, search = _search(request)
@@ -98,18 +112,28 @@ from datetime import timedelta
 @login_required
 def reserve_device(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
-    booking = Booking(device=device, user=request.user)
-    booking.booking_status = "reserved"
-    booking.booking_req_date = date.today()
-    booking.device_exp_ret_date = date.today() + timedelta(days=7)  # Set expected return date to a week from today
-    booking.save()
-    return redirect('equipment')
+    if device.device_status:  # Check if the device status is true
+        booking = Booking(device=device, user=request.user)
+        booking.booking_status = "requested"
+        booking.booking_req_date = date.today()
+        booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
+        booking.save()
+        booking.device.update_device_status()
+        return redirect('device_view', device_serial=device.config.device_serial)
+    else:
+        messages.error(request, 'This device is not available for reservation.')  # Display an error message
+        return redirect('device_view', device_serial=device.config.device_serial)
+    # Update device status
 
 @login_required
 def cancel_reservation(request, device_serial):
     device = get_object_or_404(Device, config__device_serial=device_serial)
     booking = get_object_or_404(Booking, device=device, user=request.user)
+
     booking.delete()
+    # Update device status
+    # Update device status
+    booking.device.update_device_status()
     return redirect('device_view', device_serial=device.config.device_serial)
 
 
@@ -134,12 +158,12 @@ def cancel_reservation(request, device_serial):
 
 @login_required
 def equipmentRequests(request):
-    bookings = Booking.objects.all()
+    bookings = Booking.objects.filter(user=request.user)
     return render(request, "equipmentRequest.html", { "bookings": bookings })
 
 @login_required
 def reservations(request):
-    bookings = Booking.objects.filter(booking_status="Pending")
+    bookings = Booking.objects.filter(booking_status="requested")
     return render(request, "reservations.html", { "bookings": bookings });
 
 @login_required
@@ -149,10 +173,21 @@ def edit_device(request, device_serial):
         form = DeviceForm(request.POST, instance=device)
         if form.is_valid():
             device = form.save()
-            return redirect('view_device', device_serial=device.config.device_serial)
+            return redirect('device_view', device_serial=device.config.device_serial)
+        else:
+            print(form.errors)  # Print form errors
     else:
         form = DeviceForm(instance=device)
     return render(request, 'device.html', {'form': form, 'device': device})
+
+@login_required
+def delete_device(request, device_serial):
+    device = get_object_or_404(Device, config__device_serial=device_serial)
+    device.delete()
+    return redirect('equipment')  # Redirect to the equipment page
+
+
+
 # DELETE DUPLICATED FROM DB SCRIPT: PREVENT NOT NULL ERROR
 # from django.db.models import Count
 # from InventoryManagement.models import DeviceConfig
@@ -209,42 +244,34 @@ def reports(request):
 
 def logoutUser(request):
     logout(request)
-    
+
 
 
 # Harsh's views
 @login_required
 def user_home(request):
-    try: 
+    try:
         notifications = UserNotification.objects.order_by("-created")
     except:
         notifications = list()
 
-    return render(request, 'user_home.html', { "notifications": notifications })
-
-'''
-@login_required
-def admin_home(request):
-    print("*****")
-    users = CustomUser.objects.all()
-    notifications = UserNotification.objects.order_by("-created")
-
-    print(notifications)
-    return render(request, 'admin_home.html', {'users':users, "notifications": notifications})
     devices, search = _search(request)
+    latest_booking = Booking.objects.filter(user=request.user).order_by('-booking_req_date').first()
     context = {
         "devices": devices,
         "search": search or "",
+        "latest_booking": latest_booking,
     }
     return render(request, 'user_home.html', context)
-'''
 
 @login_required
 def admin_home(request):
     devices, search = _search(request)
     users = CustomUser.objects.all()
-    
-    try: 
+    bookings = Booking.objects.filter(booking_status="requested")
+
+
+    try:
         notifications = list(UserNotification.objects.order_by("-created"))
     except:
         notifications = list()
@@ -253,10 +280,11 @@ def admin_home(request):
         "devices": devices,
         "search": search or "",
         'users': users,
+        'bookings': bookings,
         "notifications": notifications
     }
 
-    print(context)
+    #print(context)
     return render(request, 'admin_home.html', context)
 
 
@@ -270,7 +298,6 @@ def register_request(request):
             try:
                 user = form.save()
                 login(request, user)
-                
                 logger.info('User registered successfully. Email: %s', user.email)
                 messages.success(request, "Registration successful.")
                 return redirect("login")  # Redirect to the login page

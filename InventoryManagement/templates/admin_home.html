@@ -58,11 +58,13 @@
         
             <div class="dashboard-section" id="reservation-requests">
                 <h3>Reservation Requests</h3>
+                {% include "admin_dash_reservations.html" %}
                 <!-- Reservation Requests content will go here -->
             </div>
         
             <div class="dashboard-section" id="inventory-analysis">
                 <h3>Inventory Analysis</h3>
+                 <a href={% url 'reports' %} class="report-link">View reports-></a>
                 <!-- Inventory Analysis content will go here -->
             </div>
         </div>
