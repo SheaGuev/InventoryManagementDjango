@@ -49,7 +49,7 @@
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(2) {
-    height: 400px; /* Adjust this value to your needs */
+    height: 380px; /* Adjust this value to your needs */
 }
 
 .dashboard-column:first-child .dashboard-section:nth-child(3) {
@@ -75,7 +75,7 @@
 }
 
 #user-management {
-    height: 200px; /* Adjust as needed */
+    height: 300px;
     overflow: auto;
 
 }
