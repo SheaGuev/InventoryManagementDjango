@@ -40,6 +40,11 @@ def approve_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.booking_status = "reserved"
     booking.save()
+    ##create notification for user and admin
+    UserNotification.createNew(booking.user, "Your booking has been approved.")
+    admin_users = CustomUser.objects.filter(role__role_name='admin')
+    for admin in admin_users:
+        UserNotification.createNew(admin, f"Booking {booking_id} has been approved.")
     return redirect('reservations')
 
 @require_POST
@@ -47,13 +52,20 @@ def approve_booking(request, booking_id):
 def reject_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
+    ##create notification for user and admin
+    UserNotification.createNew(booking.user, "Your booking has been rejected.")
+    admin_users = CustomUser.objects.filter(role__role_name='admin')
+    for admin in admin_users:
+        UserNotification.createNew(admin, f"Booking {booking_id} has been rejected.")
     return redirect('reservations')
 @login_required
 def equipment(request):
     devices, search = _search(request)
+    user = request.user
     context = {
         "devices": devices,
         "search": search or "",
+        "user": user,
     }
     return render(request, 'equipmentSearch.html', context)
 
@@ -96,8 +108,11 @@ def _search(request):
         #     devices = devices.filter(return_date__icontains=return_date)
         # if pickup_date:
         #     devices = devices.filter(pickup_date__icontains=pickup_date)
-        if device_status:
-            devices = devices.filter(device_status__icontains=device_status)
+        if device_status is not None:
+            if device_status.lower() == 'true':
+                devices = devices.filter(device_status=True)
+            elif device_status.lower() == 'false':
+                devices = devices.filter(device_status=False)
         if device_type:
             devices = devices.filter(device_type__icontains=device_type)
 
@@ -119,6 +134,10 @@ def reserve_device(request, device_serial):
         booking.device_exp_ret_date = date.today() + timedelta(days=device.return_day)  # Set expected return date to a week from today
         booking.save()
         booking.device.update_device_status()
+        UserNotification.createNew(booking.user, "Your booking request has been submitted.")
+        admin_users = CustomUser.objects.filter(role__role_name='admin')
+        for admin in admin_users:
+            UserNotification.createNew(admin, f"New booking request {booking.id} has been submitted.")
         return redirect('device_view', device_serial=device.config.device_serial)
     else:
         messages.error(request, 'This device is not available for reservation.')  # Display an error message
@@ -191,7 +210,10 @@ def delete_device(request, device_serial):
 @require_POST
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+    device = booking.device
     booking.delete()
+    device.device_status = True  # Set the device status to available
+    device.save()
     return redirect('reservations')  # Redirect to the reservations page
 
 @login_required
@@ -268,7 +290,7 @@ def logoutUser(request):
 @login_required
 def user_home(request):
     try:
-        notifications = UserNotification.objects.order_by("-created")
+        notifications = UserNotification.objects.filter(user=request.user).order_by("-created")
     except:
         notifications = list()
 
@@ -278,6 +300,7 @@ def user_home(request):
         "devices": devices,
         "search": search or "",
         "latest_booking": latest_booking,
+        "notifications": notifications
     }
     return render(request, 'user_home.html', context)
 
@@ -287,9 +310,8 @@ def admin_home(request):
     users = CustomUser.objects.all()
     bookings = Booking.objects.filter(booking_status="requested")
 
-
     try:
-        notifications = list(UserNotification.objects.order_by("-created"))
+        notifications = UserNotification.objects.filter(user=request.user).order_by("-created")
     except:
         notifications = list()
 
@@ -312,6 +334,10 @@ def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
+            username = form.cleaned_data.get('email')  # Set username to be the same as email
+            if CustomUser.objects.filter(username=username).exists():
+                messages.error(request, "Email already exists. Please choose a different email.")
+
             try:
                 user = form.save()
                 login(request, user)

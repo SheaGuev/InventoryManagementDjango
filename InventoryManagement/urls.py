@@ -17,7 +17,7 @@ urlpatterns = [
     path('device/<str:device_serial>/delete/', views.delete_device, name='delete_device'),
     path('delete_booking/<int:booking_id>/', views.delete_booking, name='delete_booking'),
     path('notifications/', views.notifications, name='notifications'),
-path('delete_notification/<int:notification_id>/', views.delete_notification, name='delete_notification'),
+    path('delete_notification/<int:notification_id>/', views.delete_notification, name='delete_notification'),
 
     #Micah's URLs
     path("reports/", views.reports, name="reports"),

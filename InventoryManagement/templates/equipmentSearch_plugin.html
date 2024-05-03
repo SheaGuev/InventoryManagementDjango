@@ -33,9 +33,11 @@
 {#                   <a href="{% url 'equipment' %}">#}
                        <button type="reset" class="resetbtn" >Reset filters</button>
 {#                   </a>#}
+                     {% if user == "admin" %}
                      <a href="{% url 'add_device' %}">
                         <button type="button" class="addbtn" >Add new device</button>
                     </a>
+                    {% endif %}
             </form>
 
 
