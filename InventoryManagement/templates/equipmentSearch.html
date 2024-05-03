@@ -41,7 +41,7 @@
                        <button type="button" class="resetbtn" >Reset filters</button>
                    </a>
 
-                {% if user == "admin" %}
+                {% if user.role.role_name == "admin" %}
                      <a href="{% url 'add_device' %}">
                         <button type="button" class="addbtn" >Add new device</button>
                     </a>
