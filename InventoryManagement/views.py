@@ -299,6 +299,9 @@ def user_home(request):
     except:
         notifications = list()
 
+    user = request.user
+    devices, search = _search(request)
+    latest_booking = Booking.objects.filter(user=request.user).order_by('-booking_req_date').first()
     context = {
         "devices": devices,
         "search": search or "",
@@ -425,3 +428,4 @@ def delete_user(request, user_id):
     user = CustomUser.objects.get(id=user_id)
     user.delete()
     return redirect('admin_home')
+
