@@ -307,7 +307,8 @@ def user_home(request):
         'users': users,
         'bookings': bookings,
         "notifications": notifications,
-        "user": user
+        "user": user,
+        "latest_booking": latest_booking
 
     }
     return render(request, 'user_home.html', context)
