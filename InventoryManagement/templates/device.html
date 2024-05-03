@@ -48,8 +48,9 @@
     {% endfor %}
 {% endif %}
     </div>
-
+    {% if user.role.role_name == "admin" %}
     {% include 'edit_device.html' %}
+    {% endif %}
     <!-- Modal -->
     </div>
 
