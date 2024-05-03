@@ -9,6 +9,7 @@
     box-sizing: border-box; /* Include padding and border in element's total width and height */
     width: 100%; /* Set the width */
     height: 200px; /* Set the height */
+    overflow: auto; /* Add scrollbars if content overflows */
 }
 
 .dashboard-section h3 {
@@ -88,4 +89,13 @@
 /*=======*/
 /*>>>>>>> a40534de48066ad4e648936a047b7adf1df0cebb*/
 /*>>>>>>> 73197cbca9206b5b68d4cf8a55d4f30d3a0d980f*/
+}
+
+.report-link{
+    color: mediumaquamarine;
+    margin-top: 20px;
+    transition: color 0.3s;
+}
+.report-link:hover{
+    color: white;
 }

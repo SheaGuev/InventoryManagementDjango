@@ -29,8 +29,8 @@
         </h5>
 
         <div class="my-auto ml-auto">
-          <button class="btn btn-primary">View</button>
-          <button class="btn btn-danger">Amend</button>
+            <a href={% url 'device_view' booking.device.config.device_serial %}> <button class="btn btn-primary">View</button> </a>
+            <a href={% url "cancel_reservation" booking.device.config.device_serial %}> <button class="btn btn-danger">Amend</button> </a>
         </div>
       </div>
     </div>

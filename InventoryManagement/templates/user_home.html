@@ -29,7 +29,30 @@
             </div>
             <div class="dashboard-section" id="reservations">
                 <h3>Reservations</h3>
-                <!-- Reservations content will go here -->
+                {% if latest_booking %}
+                    <div class="rsv-block p2 mt2">
+                          <div class="flex">
+                            <h3 class="h1 m0" style="font-weight: initial">
+                              {{ latest_booking.device }}
+                            </h3>
+                          </div>
+
+                          <div class="flex">
+                            <h5 class="p0 mt0">
+                              Pickup: {{ latest_booking.device_act_ret_date }}
+                            </h5>
+
+                            <h5 class="ml-auto p0 mt0">
+                              Return: {{ latest_booking.device_exp_ret_date }}
+                            </h5>
+
+                            <div class="my-auto ml-auto">
+                                <a href={% url 'device_view' latest_booking.device.config.device_serial %}> <button class="btn btn-primary">View</button> </a>
+                                <a href={% url "cancel_reservation" latest_booking.device.config.device_serial %}> <button class="btn btn-danger">Amend</button> </a>
+                            </div>
+                          </div>
+                        </div>
+                {% endif %}
             </div>
         </div>
     </div>

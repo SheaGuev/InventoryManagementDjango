@@ -30,6 +30,14 @@ class Device(models.Model):
     return_day = models.IntegerField(default=0)
     # device_count = models.IntegerField(default=0)
 
+    def update_device_status(self):
+        bookings = Booking.objects.filter(device=self).exclude(booking_status="cancelled")
+        if bookings:
+            self.device_status = False
+        else:
+            self.device_status = True
+        self.save()
+
     def __str__(self):
         return self.device_name
 
@@ -185,6 +193,8 @@ class Booking(models.Model):
     collected_date = models.DateTimeField(null=True, blank=True)
     device_exp_ret_date = models.DateField()
     device_act_ret_date = models.DateField(null=True, blank=True)
+
+
 
     def reserve_device(deviceId, user):
         booking = Booking()

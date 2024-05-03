@@ -47,8 +47,11 @@
     {#        ADD A LINK TO THE REPORTS PAGE ONLY IF USER ROLE IS ADMIN!!#}
         {% if user.role.role_name == 'admin' %}
         <a href="{% url 'reports' %}">Reports</a>
-        {% elif user.role.role_name == "user" %}
+        {% endif %}
+        {% if user.role.role_name == 'admin' %}
         <a href="{% url 'reservations' %}">Reservations</a>
+        {% elif user.role.role_name == "user" %}
+        <a href="{% url 'requests' %}">Reservations</a>
         {% endif %}
         <div class="logout">
             <a href="/logout">Log out</a>

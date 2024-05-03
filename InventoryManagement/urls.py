@@ -12,6 +12,9 @@ urlpatterns = [
     path('add_device/', views.add_device, name='add_device'),
     path('reserve_device/<str:device_serial>/', views.reserve_device, name='reserve_device'),
     path('cancel_reservation/<str:device_serial>/', views.cancel_reservation, name='cancel_reservation'),
+    path('approve_booking/<int:booking_id>/', views.approve_booking, name='approve_booking'),
+    path('reject_booking/<int:booking_id>/', views.reject_booking, name='reject_booking'),
+    path('device/<str:device_serial>/delete/', views.delete_device, name='delete_device'),
 
     #Micah's URLs
     path("reports/", views.reports, name="reports"),

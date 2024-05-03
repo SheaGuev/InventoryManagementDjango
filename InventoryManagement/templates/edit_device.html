@@ -3,8 +3,12 @@
         <div class="modal-content" id="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalLabel">Edit Device</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                <a href="{% url 'delete_device' device.config.device_serial %}" class="btn btn-danger">Delete</a>
                 {{ device.config.device_serial }}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+
+
+
             </div>
             <div class="modal-body" id="modal-body">
                 <form method="POST" action="{% url 'edit_device' device.config.device_serial %}">
@@ -16,7 +20,9 @@
 {#                    {{ form.device_status.label_tag }} #}
                     <br>{{ form.return_day.label_tag }} {{ form.return_day }} {{ form.return_day.errors }}
                     <label>Available:</label> {{ form.device_status }} {{ form.device_status.errors }}
-                    <button type="submit" class="btn btn-primary" id="form-sub">Save changes</button>
+                        <button type="submit" class="btn btn-primary" id="form-sub">Save changes</button>
+
+
                 </form>
             </div>
         </div>
